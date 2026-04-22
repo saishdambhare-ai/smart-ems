@@ -5,7 +5,7 @@ const session      = require('express-session');
 
 const app  = express();
 const PORT = process.env.PORT || 10000;
-const ML_URL = 'http://127.0.0.1:5001'; // Python ML microservice
+const ML_URL = 'https://smart-ems-ml.onrender.com';
 
 // ── DB + Models ──────────────────────────────────────────────────
 require('./db/connection');
