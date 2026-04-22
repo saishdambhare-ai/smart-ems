@@ -1,0 +1,501 @@
+department,profession,experience,login_activity,attrition
+IT,Professor,22.4,3,0
+IT,Librarian,1.4,1,1
+IT,Lab Technician,21.6,8,1
+IT,Lab Technician,21.1,5,1
+Computer,Administrative Staff,3.5,6,0
+IT,Librarian,16.3,6,1
+ENTC,Administrative Staff,17.5,1,1
+IT,Lab Technician,26.1,6,1
+ENTC,Lab Technician,11.4,3,0
+IT,Lab Technician,16.3,3,1
+AIML,Administrative Staff,29.7,10,0
+IT,Lab Technician,24.7,5,0
+IT,Lab Technician,27.4,9,0
+AIML,Librarian,4.7,2,1
+ENTC,Librarian,27.0,6,1
+AIML,Professor,22.8,1,1
+Computer,Librarian,18.1,6,0
+IT,Professor,20.6,8,0
+ENTC,Professor,9.2,2,0
+ENTC,Lab Technician,15.5,1,0
+ENTC,Lab Technician,5.0,2,0
+IT,Administrative Staff,14.9,1,0
+ENTC,Lab Technician,2.2,9,0
+IT,Lab Technician,4.3,7,0
+Computer,Administrative Staff,16.1,9,0
+Computer,Administrative Staff,12.3,10,0
+AIML,Librarian,4.1,3,0
+Computer,Professor,2.6,10,1
+IT,Professor,25.9,1,0
+Computer,Librarian,7.7,7,0
+Computer,Professor,3.4,6,0
+IT,Professor,2.3,5,0
+IT,Lab Technician,6.2,8,1
+Computer,Professor,13.6,8,1
+IT,Professor,27.8,3,1
+AIML,Professor,5.4,0,0
+ENTC,Librarian,8.9,8,0
+Computer,Professor,17.6,8,1
+ENTC,Professor,2.0,7,1
+IT,Lab Technician,2.5,1,0
+Computer,Librarian,4.0,9,0
+AIML,Administrative Staff,28.1,3,0
+ENTC,Lab Technician,8.3,2,1
+IT,Professor,14.0,9,0
+IT,Lab Technician,15.4,2,0
+ENTC,Administrative Staff,5.2,8,0
+IT,Administrative Staff,28.0,1,1
+IT,Lab Technician,8.5,9,1
+ENTC,Lab Technician,20.8,4,0
+IT,Professor,19.2,4,1
+ENTC,Lab Technician,19.3,4,0
+IT,Professor,2.7,2,0
+ENTC,Lab Technician,13.2,0,0
+IT,Administrative Staff,6.7,3,0
+ENTC,Librarian,29.2,2,1
+Computer,Librarian,1.2,5,0
+AIML,Lab Technician,8.4,1,1
+Computer,Librarian,10.8,3,1
+Computer,Librarian,10.2,1,0
+AIML,Administrative Staff,28.2,1,0
+ENTC,Lab Technician,17.6,4,0
+ENTC,Librarian,18.4,8,1
+Computer,Administrative Staff,1.8,6,0
+Computer,Administrative Staff,13.2,10,0
+ENTC,Professor,21.7,4,0
+ENTC,Lab Technician,6.2,10,0
+Computer,Administrative Staff,12.5,0,0
+ENTC,Librarian,13.5,10,0
+AIML,Lab Technician,19.9,4,1
+Computer,Administrative Staff,7.1,3,1
+IT,Lab Technician,29.5,9,0
+Computer,Librarian,15.1,3,1
+IT,Professor,23.5,3,0
+IT,Lab Technician,27.6,1,1
+AIML,Administrative Staff,28.5,7,0
+AIML,Lab Technician,22.4,7,0
+Computer,Administrative Staff,23.1,8,0
+ENTC,Lab Technician,8.5,5,0
+IT,Lab Technician,4.9,6,1
+AIML,Administrative Staff,16.5,6,1
+AIML,Librarian,27.2,9,0
+AIML,Librarian,0.7,5,1
+AIML,Librarian,16.4,8,0
+ENTC,Librarian,14.8,6,0
+AIML,Lab Technician,25.3,2,0
+IT,Professor,19.5,2,0
+Computer,Professor,8.2,5,0
+AIML,Administrative Staff,22.7,6,0
+IT,Librarian,1.1,8,1
+IT,Professor,22.7,3,1
+IT,Lab Technician,7.5,7,1
+ENTC,Administrative Staff,5.4,9,0
+IT,Lab Technician,29.0,1,0
+AIML,Librarian,28.3,3,1
+Computer,Professor,21.1,4,1
+IT,Administrative Staff,16.2,10,0
+ENTC,Professor,25.6,7,0
+AIML,Lab Technician,13.3,8,0
+ENTC,Librarian,14.2,9,0
+IT,Administrative Staff,26.5,3,0
+AIML,Administrative Staff,1.3,5,0
+ENTC,Administrative Staff,26.5,4,0
+Computer,Professor,7.6,6,0
+AIML,Librarian,23.9,1,1
+AIML,Lab Technician,9.5,9,0
+ENTC,Administrative Staff,21.2,4,0
+Computer,Professor,21.8,5,0
+Computer,Lab Technician,6.9,7,0
+ENTC,Professor,25.1,4,1
+Computer,Administrative Staff,1.8,0,1
+Computer,Librarian,3.5,0,1
+Computer,Professor,7.9,7,1
+IT,Librarian,15.0,9,1
+ENTC,Professor,29.8,1,0
+AIML,Lab Technician,23.4,6,0
+AIML,Administrative Staff,17.3,0,0
+IT,Lab Technician,19.0,4,1
+IT,Lab Technician,0.6,7,0
+AIML,Administrative Staff,1.5,4,1
+Computer,Administrative Staff,23.7,10,0
+Computer,Librarian,3.9,3,0
+IT,Professor,5.4,4,0
+ENTC,Librarian,4.2,4,0
+AIML,Librarian,2.9,0,0
+ENTC,Administrative Staff,1.3,3,0
+IT,Administrative Staff,17.5,2,0
+AIML,Administrative Staff,5.9,9,0
+AIML,Administrative Staff,12.5,5,0
+Computer,Administrative Staff,12.6,7,0
+IT,Librarian,3.1,4,1
+AIML,Professor,19.9,8,0
+AIML,Librarian,22.9,3,0
+Computer,Administrative Staff,13.4,7,0
+Computer,Lab Technician,9.7,0,0
+IT,Lab Technician,29.8,1,0
+AIML,Administrative Staff,15.5,4,0
+AIML,Librarian,7.7,8,0
+Computer,Professor,8.6,6,0
+ENTC,Professor,8.8,4,0
+Computer,Librarian,16.4,5,0
+AIML,Librarian,28.0,3,0
+AIML,Professor,9.9,7,0
+AIML,Librarian,29.7,10,1
+ENTC,Professor,26.3,7,1
+AIML,Professor,21.8,6,1
+ENTC,Administrative Staff,18.9,6,0
+ENTC,Librarian,28.6,10,0
+IT,Professor,7.4,10,0
+Computer,Professor,13.3,1,1
+Computer,Administrative Staff,27.2,0,1
+IT,Administrative Staff,11.1,6,0
+Computer,Lab Technician,5.7,9,0
+Computer,Librarian,27.4,2,0
+IT,Librarian,27.1,10,0
+IT,Librarian,28.4,9,0
+AIML,Administrative Staff,6.4,6,0
+IT,Lab Technician,11.8,5,1
+AIML,Administrative Staff,0.7,10,0
+IT,Librarian,25.1,4,0
+Computer,Lab Technician,18.8,10,0
+Computer,Professor,27.2,10,1
+ENTC,Lab Technician,3.2,4,1
+AIML,Lab Technician,6.4,8,0
+ENTC,Lab Technician,8.1,7,0
+ENTC,Administrative Staff,24.2,7,0
+AIML,Administrative Staff,3.2,6,1
+IT,Librarian,11.4,10,0
+ENTC,Professor,20.4,7,1
+ENTC,Lab Technician,19.6,10,0
+AIML,Professor,4.6,0,1
+AIML,Professor,3.4,8,0
+AIML,Lab Technician,26.6,10,1
+AIML,Librarian,28.2,4,0
+Computer,Administrative Staff,3.4,10,0
+ENTC,Professor,12.2,3,0
+IT,Lab Technician,19.4,9,0
+IT,Administrative Staff,7.7,2,0
+Computer,Lab Technician,24.5,3,0
+Computer,Professor,8.7,2,0
+IT,Professor,4.4,5,0
+Computer,Administrative Staff,1.0,4,0
+IT,Librarian,13.7,5,0
+IT,Librarian,15.4,9,0
+ENTC,Librarian,19.5,0,1
+AIML,Librarian,13.1,1,1
+IT,Administrative Staff,18.4,1,1
+ENTC,Librarian,29.8,8,0
+IT,Lab Technician,13.2,3,0
+AIML,Librarian,12.8,1,1
+Computer,Librarian,2.5,1,1
+IT,Administrative Staff,24.4,8,0
+IT,Librarian,10.9,10,0
+AIML,Professor,29.1,9,0
+Computer,Librarian,7.1,1,0
+ENTC,Professor,23.0,9,0
+IT,Administrative Staff,1.4,4,0
+ENTC,Administrative Staff,10.9,2,0
+Computer,Professor,3.2,8,1
+AIML,Librarian,10.6,5,0
+IT,Professor,5.1,9,1
+IT,Administrative Staff,13.6,6,0
+IT,Administrative Staff,13.2,4,0
+AIML,Administrative Staff,1.8,6,1
+Computer,Lab Technician,23.0,4,0
+IT,Librarian,22.5,2,1
+ENTC,Professor,12.2,0,0
+AIML,Professor,25.9,9,0
+ENTC,Professor,12.4,5,1
+AIML,Administrative Staff,3.1,1,0
+AIML,Administrative Staff,22.5,3,0
+Computer,Professor,15.6,1,0
+ENTC,Lab Technician,7.5,2,1
+Computer,Lab Technician,22.9,10,0
+AIML,Librarian,20.6,9,0
+ENTC,Administrative Staff,5.0,1,0
+IT,Administrative Staff,15.5,4,0
+IT,Professor,11.4,4,0
+AIML,Librarian,17.6,0,0
+Computer,Administrative Staff,18.3,8,1
+ENTC,Professor,15.4,2,1
+AIML,Librarian,16.0,9,0
+AIML,Administrative Staff,20.5,0,0
+ENTC,Professor,10.2,8,0
+Computer,Administrative Staff,2.9,10,1
+ENTC,Administrative Staff,29.0,10,0
+ENTC,Librarian,19.5,5,0
+IT,Librarian,15.5,0,1
+AIML,Lab Technician,7.2,2,1
+ENTC,Professor,15.5,8,1
+ENTC,Lab Technician,18.1,2,1
+Computer,Librarian,1.8,5,1
+ENTC,Librarian,7.4,3,0
+AIML,Lab Technician,11.4,9,1
+AIML,Librarian,29.0,3,0
+Computer,Administrative Staff,2.0,7,1
+IT,Administrative Staff,3.0,2,1
+Computer,Librarian,3.2,3,0
+AIML,Professor,12.2,5,1
+IT,Administrative Staff,7.1,5,0
+Computer,Lab Technician,1.6,7,0
+Computer,Librarian,13.7,0,1
+Computer,Librarian,3.8,4,1
+IT,Professor,7.5,10,1
+AIML,Professor,19.1,9,0
+Computer,Administrative Staff,13.2,9,0
+IT,Administrative Staff,2.5,8,0
+IT,Librarian,26.3,0,1
+IT,Administrative Staff,23.8,5,1
+IT,Administrative Staff,4.4,5,1
+AIML,Librarian,19.1,2,1
+AIML,Professor,9.2,0,1
+ENTC,Librarian,29.7,8,0
+IT,Lab Technician,8.9,0,1
+ENTC,Librarian,26.7,7,0
+AIML,Administrative Staff,29.2,7,0
+ENTC,Professor,21.9,1,0
+Computer,Administrative Staff,10.0,1,0
+AIML,Lab Technician,20.8,5,0
+ENTC,Librarian,8.6,0,0
+Computer,Professor,4.7,9,0
+AIML,Professor,4.2,3,0
+IT,Lab Technician,20.5,5,1
+IT,Lab Technician,16.1,6,0
+IT,Lab Technician,15.2,6,0
+IT,Administrative Staff,23.4,7,0
+AIML,Lab Technician,4.1,1,1
+AIML,Professor,24.4,5,0
+ENTC,Administrative Staff,25.6,10,0
+ENTC,Lab Technician,4.1,3,0
+ENTC,Administrative Staff,14.3,8,1
+IT,Professor,9.6,7,0
+IT,Lab Technician,29.2,10,1
+AIML,Administrative Staff,4.3,8,0
+AIML,Professor,25.0,8,0
+Computer,Lab Technician,10.0,3,0
+IT,Administrative Staff,6.3,8,0
+ENTC,Professor,15.3,2,1
+ENTC,Professor,24.8,0,1
+ENTC,Lab Technician,23.1,6,0
+ENTC,Administrative Staff,14.7,10,0
+AIML,Professor,20.8,2,1
+Computer,Administrative Staff,25.9,5,0
+ENTC,Librarian,4.4,5,1
+IT,Administrative Staff,13.8,2,1
+ENTC,Librarian,26.0,6,1
+ENTC,Administrative Staff,6.1,2,0
+AIML,Librarian,26.4,7,0
+Computer,Lab Technician,17.7,0,1
+AIML,Librarian,8.9,0,0
+ENTC,Librarian,11.3,6,1
+Computer,Administrative Staff,16.8,1,0
+IT,Lab Technician,29.3,6,1
+ENTC,Administrative Staff,22.8,3,1
+IT,Lab Technician,21.6,7,0
+Computer,Lab Technician,10.2,9,0
+ENTC,Administrative Staff,15.5,8,0
+ENTC,Librarian,24.6,5,0
+ENTC,Professor,18.1,4,0
+Computer,Professor,17.7,2,0
+AIML,Lab Technician,24.7,3,1
+IT,Lab Technician,1.1,5,1
+AIML,Professor,21.3,8,0
+ENTC,Librarian,16.0,5,0
+ENTC,Administrative Staff,18.5,3,0
+ENTC,Administrative Staff,7.1,4,0
+AIML,Administrative Staff,14.7,8,0
+ENTC,Administrative Staff,4.1,10,0
+ENTC,Lab Technician,9.1,4,0
+IT,Administrative Staff,27.8,10,0
+ENTC,Administrative Staff,4.5,9,0
+Computer,Lab Technician,2.0,8,1
+ENTC,Librarian,3.5,2,1
+Computer,Librarian,19.8,7,0
+ENTC,Administrative Staff,19.6,1,0
+Computer,Professor,27.4,2,0
+IT,Librarian,23.7,2,0
+ENTC,Professor,0.8,9,1
+AIML,Librarian,26.7,2,0
+AIML,Administrative Staff,6.2,1,0
+Computer,Professor,22.2,4,0
+Computer,Lab Technician,18.5,10,0
+IT,Librarian,20.2,2,0
+AIML,Administrative Staff,28.1,0,0
+ENTC,Administrative Staff,17.7,9,1
+ENTC,Lab Technician,2.3,1,0
+ENTC,Professor,19.3,4,0
+Computer,Lab Technician,28.7,7,0
+AIML,Librarian,22.8,10,0
+Computer,Professor,16.0,8,0
+IT,Lab Technician,17.4,2,1
+AIML,Professor,20.6,9,0
+IT,Librarian,4.4,6,0
+IT,Librarian,20.3,4,0
+Computer,Professor,1.8,5,0
+IT,Professor,29.6,7,0
+AIML,Administrative Staff,29.8,6,0
+AIML,Librarian,2.9,10,0
+IT,Lab Technician,29.8,6,0
+Computer,Professor,22.8,4,0
+AIML,Lab Technician,7.8,5,1
+Computer,Professor,1.5,10,0
+IT,Lab Technician,6.6,1,0
+AIML,Professor,7.7,0,1
+IT,Lab Technician,15.4,4,1
+ENTC,Administrative Staff,7.5,2,0
+ENTC,Professor,16.9,9,0
+Computer,Librarian,16.9,0,0
+ENTC,Librarian,12.5,4,0
+AIML,Lab Technician,25.6,4,0
+IT,Librarian,29.0,8,0
+AIML,Lab Technician,8.0,5,0
+IT,Lab Technician,2.0,6,0
+IT,Professor,6.1,9,0
+ENTC,Administrative Staff,28.7,0,1
+Computer,Professor,22.5,7,0
+AIML,Lab Technician,16.8,4,1
+ENTC,Administrative Staff,8.2,8,0
+AIML,Administrative Staff,27.5,5,0
+IT,Lab Technician,22.4,0,0
+AIML,Administrative Staff,5.0,5,1
+Computer,Librarian,16.7,10,0
+AIML,Librarian,5.5,5,1
+AIML,Lab Technician,27.5,8,0
+IT,Professor,23.0,6,1
+Computer,Professor,21.4,0,1
+AIML,Librarian,1.0,8,0
+IT,Professor,16.1,4,0
+AIML,Lab Technician,3.7,1,1
+Computer,Lab Technician,18.8,4,0
+ENTC,Librarian,14.0,3,0
+Computer,Administrative Staff,20.7,1,0
+IT,Librarian,11.7,8,0
+IT,Lab Technician,2.9,6,0
+IT,Professor,7.3,9,0
+IT,Professor,20.7,4,1
+ENTC,Professor,28.9,9,1
+AIML,Professor,9.3,9,0
+ENTC,Librarian,22.8,2,0
+IT,Administrative Staff,2.1,6,0
+AIML,Administrative Staff,1.4,4,0
+AIML,Librarian,7.2,8,0
+AIML,Professor,23.3,4,0
+IT,Professor,8.4,6,0
+ENTC,Administrative Staff,3.6,0,0
+AIML,Administrative Staff,23.0,1,0
+AIML,Professor,1.3,5,0
+ENTC,Librarian,0.9,6,0
+Computer,Lab Technician,20.7,2,1
+ENTC,Administrative Staff,15.0,1,1
+IT,Administrative Staff,7.9,3,0
+AIML,Lab Technician,14.0,2,1
+AIML,Administrative Staff,13.5,6,0
+Computer,Administrative Staff,10.0,3,0
+ENTC,Administrative Staff,22.2,10,0
+Computer,Administrative Staff,11.6,6,1
+Computer,Professor,28.6,7,0
+Computer,Librarian,24.0,1,0
+AIML,Lab Technician,19.2,3,1
+Computer,Librarian,23.8,1,0
+AIML,Professor,23.8,5,0
+IT,Professor,23.2,10,0
+AIML,Administrative Staff,29.0,6,1
+IT,Administrative Staff,7.0,8,0
+ENTC,Librarian,14.2,10,0
+Computer,Administrative Staff,29.9,7,0
+IT,Lab Technician,10.8,5,0
+Computer,Librarian,10.8,1,1
+ENTC,Professor,24.4,1,1
+ENTC,Professor,20.5,2,0
+Computer,Administrative Staff,17.0,7,0
+AIML,Lab Technician,6.0,10,0
+Computer,Librarian,18.0,6,1
+Computer,Lab Technician,8.7,1,0
+ENTC,Administrative Staff,6.3,1,1
+AIML,Administrative Staff,18.1,9,0
+AIML,Lab Technician,24.5,4,0
+IT,Lab Technician,9.7,3,0
+AIML,Librarian,18.1,9,0
+Computer,Librarian,19.2,10,0
+ENTC,Lab Technician,6.0,7,0
+ENTC,Professor,14.8,3,0
+AIML,Librarian,20.7,6,0
+AIML,Librarian,5.4,9,0
+ENTC,Lab Technician,16.4,2,0
+AIML,Professor,17.4,4,0
+IT,Librarian,16.6,6,1
+Computer,Administrative Staff,26.3,0,0
+AIML,Professor,23.4,3,1
+ENTC,Librarian,5.4,2,0
+ENTC,Administrative Staff,18.1,2,1
+ENTC,Administrative Staff,17.4,8,1
+AIML,Professor,29.8,10,1
+Computer,Lab Technician,4.8,5,0
+AIML,Lab Technician,17.5,4,0
+AIML,Librarian,2.7,1,0
+ENTC,Librarian,28.5,5,0
+IT,Librarian,19.2,5,0
+AIML,Lab Technician,15.1,5,0
+ENTC,Lab Technician,17.2,7,0
+IT,Professor,19.0,7,1
+Computer,Librarian,14.0,6,1
+ENTC,Lab Technician,26.3,4,1
+ENTC,Administrative Staff,2.9,10,0
+ENTC,Lab Technician,13.2,1,0
+IT,Lab Technician,14.6,2,1
+IT,Administrative Staff,24.6,6,0
+AIML,Professor,7.3,1,1
+ENTC,Lab Technician,11.8,2,0
+Computer,Professor,16.1,0,0
+Computer,Lab Technician,27.6,9,0
+Computer,Professor,26.9,2,0
+AIML,Administrative Staff,23.8,3,0
+IT,Lab Technician,16.8,9,0
+IT,Administrative Staff,6.6,9,0
+AIML,Administrative Staff,19.6,3,0
+IT,Professor,29.6,5,1
+AIML,Administrative Staff,16.6,2,0
+IT,Professor,0.9,3,1
+IT,Librarian,15.4,10,0
+AIML,Professor,19.4,8,0
+ENTC,Professor,9.6,8,0
+ENTC,Librarian,17.8,10,0
+IT,Administrative Staff,21.1,3,0
+AIML,Professor,9.6,10,0
+IT,Professor,21.4,0,0
+ENTC,Lab Technician,11.5,4,0
+IT,Professor,10.4,6,0
+IT,Librarian,13.9,5,1
+Computer,Administrative Staff,5.1,1,1
+IT,Professor,25.8,0,1
+AIML,Administrative Staff,11.8,2,1
+AIML,Lab Technician,10.0,6,0
+ENTC,Administrative Staff,24.9,9,0
+Computer,Lab Technician,24.2,0,0
+IT,Librarian,26.0,4,1
+Computer,Administrative Staff,17.1,4,0
+Computer,Librarian,11.4,7,0
+Computer,Lab Technician,0.7,6,1
+ENTC,Professor,28.6,0,0
+ENTC,Professor,6.6,3,0
+IT,Lab Technician,21.5,1,0
+AIML,Administrative Staff,14.0,1,0
+Computer,Librarian,2.7,9,1
+ENTC,Administrative Staff,25.6,6,0
+ENTC,Administrative Staff,13.9,3,0
+IT,Lab Technician,3.6,7,0
+AIML,Professor,16.3,3,0
+IT,Lab Technician,24.3,4,0
+IT,Lab Technician,25.2,5,0
+AIML,Professor,20.5,4,0
+Computer,Professor,28.6,7,1
+IT,Lab Technician,4.1,0,0
+Computer,Lab Technician,6.3,6,0
+ENTC,Professor,1.1,1,1
+AIML,Lab Technician,3.2,5,1
+AIML,Librarian,15.1,6,0
+Computer,Administrative Staff,6.8,2,1
+Computer,Administrative Staff,15.2,8,0
+IT,Administrative Staff,11.8,6,0
+IT,Librarian,23.6,5,0

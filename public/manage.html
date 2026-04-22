@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage Employees — EMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0d1b2a; --blue:#1a6ef5; --cyan:#00c2cb;
+      --white:#f8faff; --grey:#8a9bb5; --card:#131e2e;
+      --border:rgba(255,255,255,0.07);
+      --danger:#ef4444;
+    }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body { font-family:'DM Sans',sans-serif; background:var(--navy); color:var(--white); min-height:100vh; }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0;
+      background-image: linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px), linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);
+      background-size:60px 60px; pointer-events:none;
+    }
+
+    /* SIDEBAR */
+    .sidebar { position:fixed; left:0; top:0; bottom:0; width:240px; background:var(--card); border-right:1px solid var(--border); display:flex; flex-direction:column; z-index:10; }
+    .sidebar-logo { padding:28px 24px; font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem; background:linear-gradient(135deg,var(--blue),var(--cyan)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; border-bottom:1px solid var(--border); }
+    .sidebar-nav { flex:1; padding:20px 12px; display:flex; flex-direction:column; gap:4px; }
+    .nav-item { display:flex; align-items:center; gap:12px; padding:11px 16px; border-radius:10px; color:var(--grey); text-decoration:none; font-size:.9rem; transition:all .2s; }
+    .nav-item:hover,.nav-item.active { background:rgba(26,110,245,.12); color:var(--white); }
+    .nav-item.active { color:#7ab4ff; }
+    .nav-icon { font-size:1.1rem; width:22px; text-align:center; }
+    .sidebar-bottom { padding:16px 12px; border-top:1px solid var(--border); }
+    .logout-link { display:flex; align-items:center; gap:10px; padding:11px 16px; border-radius:10px; color:var(--danger); text-decoration:none; font-size:.9rem; transition:background .2s; }
+    .logout-link:hover { background:rgba(239,68,68,.1); }
+
+    /* MAIN */
+    .main { margin-left:240px; padding:32px; position:relative; z-index:1; }
+    .page-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
+    .page-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; }
+    .add-btn {
+      background:linear-gradient(135deg,var(--blue),#1458d0); color:#fff;
+      padding:10px 20px; border-radius:9px; font-size:.85rem; text-decoration:none;
+      transition:opacity .2s; font-weight:500;
+    }
+    .add-btn:hover { opacity:.85; }
+
+    /* SEARCH */
+    .search-bar {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:10px 16px; display:flex; align-items:center; gap:10px; margin-bottom:20px;
+    }
+    .search-bar input {
+      flex:1; background:transparent; border:none; color:var(--white);
+      font-family:'DM Sans',sans-serif; font-size:.9rem; outline:none;
+    }
+    .search-bar input::placeholder { color:var(--grey); }
+
+    /* TABLE */
+    .table-wrap { background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    table { width:100%; border-collapse:collapse; }
+    thead th { padding:13px 16px; text-align:left; font-size:.73rem; text-transform:uppercase; letter-spacing:1px; color:var(--grey); border-bottom:1px solid var(--border); }
+    tbody td { padding:13px 16px; font-size:.88rem; border-bottom:1px solid rgba(255,255,255,.03); }
+    tbody tr:hover td { background:rgba(255,255,255,.02); }
+    tbody tr:last-child td { border-bottom:none; }
+
+    .dept-badge {
+      display:inline-block; padding:3px 9px; border-radius:100px; font-size:.73rem;
+      background:rgba(26,110,245,.12); color:#7ab4ff;
+    }
+    .action-row { display:flex; gap:8px; }
+    .edit-btn, .del-btn {
+      padding:6px 12px; border-radius:6px; font-size:.78rem; text-decoration:none; cursor:pointer; border:none; font-family:'DM Sans',sans-serif; transition:background .2s;
+    }
+    .edit-btn { background:rgba(26,110,245,.15); color:#7ab4ff; }
+    .edit-btn:hover { background:rgba(26,110,245,.28); }
+    .del-btn  { background:rgba(239,68,68,.15);  color:#fca5a5; }
+    .del-btn:hover  { background:rgba(239,68,68,.28); }
+
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .main > * { animation:fadeIn .5s ease both; }
+  </style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="sidebar-logo">EMS Admin</div>
+  <nav class="sidebar-nav">
+    <a class="nav-item" href="admin.html"><span class="nav-icon">📊</span> Dashboard</a>
+    <a class="nav-item active" href="manage.html"><span class="nav-icon">👥</span> Manage Employees</a>
+    <a class="nav-item" href="predict.html"><span class="nav-icon">🤖</span> ML Predictions</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a class="logout-link" href="index.html"><span>🚪</span> Logout</a>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="page-header">
+    <div class="page-title">Manage Employees</div>
+    <a href="register.html" class="add-btn">➕ Add Employee</a>
+  </div>
+
+  <div class="search-bar">
+    <span style="color:var(--grey)">🔍</span>
+    <input type="text" id="searchInput" placeholder="Search by name, department, profession…" oninput="filterTable()">
+  </div>
+
+  <div class="table-wrap">
+    <table id="empTable">
+      <thead>
+        <tr>
+          <th>#</th><th>Name</th><th>Username</th><th>Email</th>
+          <th>Department</th><th>Profession</th><th>Exp</th><th>Joined</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<script>
+let allEmployees = [];
+
+fetch('/get_all_employees')
+  .then(r => r.json())
+  .then(data => {
+    allEmployees = data;
+    renderTable(data);
+  })
+  .catch(e => console.error(e));
+
+function renderTable(data) {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  data.forEach((emp, i) => {
+    const row = document.createElement('tr');
+    row.id = `row-${emp.id}`;
+    row.innerHTML = `
+      <td style="color:var(--grey)">${i+1}</td>
+      <td><strong>${emp.first_name} ${emp.last_name}</strong></td>
+      <td style="color:var(--grey)">${emp.username}</td>
+      <td style="color:var(--grey);font-size:.82rem">${emp.email}</td>
+      <td><span class="dept-badge">${emp.department||'—'}</span></td>
+      <td>${emp.profession||'—'}</td>
+      <td style="color:var(--grey)">${emp.experience||0}y</td>
+      <td style="color:var(--grey);font-size:.8rem">${new Date(emp.created_at).toLocaleDateString()}</td>
+      <td>
+        <div class="action-row">
+          <a href="update_employee.html?id=${emp.id}" class="edit-btn">Edit</a>
+          <button class="del-btn" onclick="deleteEmployee('${emp.id}')">Delete</button>
+        </div>
+      </td>`;
+    tbody.appendChild(row);
+  });
+}
+
+function filterTable() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const filtered = allEmployees.filter(e =>
+    `${e.first_name} ${e.last_name} ${e.department} ${e.profession} ${e.username}`.toLowerCase().includes(q)
+  );
+  renderTable(filtered);
+}
+
+async function deleteEmployee(id) {
+  if (!confirm('Delete this employee?')) return;
+  try {
+    const res  = await fetch(`/delete_employee/${id}`, { method:'DELETE', headers:{'Content-Type':'application/json'} });
+    const data = await res.json();
+    if (data.success) {
+      document.getElementById(`row-${id}`).remove();
+      allEmployees = allEmployees.filter(e => String(e.id) !== String(id));
+    } else {
+      alert('Error: ' + data.message);
+    }
+  } catch(e) { alert('Server error'); }
+}
+</script>
+</body>
+</html>

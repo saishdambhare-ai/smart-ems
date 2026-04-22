@@ -1,0 +1,501 @@
+department,profession,experience,salary
+IT,Professor,22.4,164676.8
+IT,Librarian,1.4,66829.21
+IT,Lab Technician,21.6,112493.59
+IT,Lab Technician,21.1,115897.1
+Computer,Administrative Staff,3.5,69418.97
+IT,Librarian,16.3,91917.44
+ENTC,Administrative Staff,17.5,84418.84
+IT,Lab Technician,26.1,125422.69
+ENTC,Lab Technician,11.4,78276.15
+IT,Lab Technician,16.3,100137.79
+AIML,Administrative Staff,29.7,126842.14
+IT,Lab Technician,24.7,119914.79
+IT,Lab Technician,27.4,129399.9
+AIML,Librarian,4.7,70910.54
+ENTC,Librarian,27.0,85628.44
+AIML,Professor,22.8,184693.41
+Computer,Librarian,18.1,77893.97
+IT,Professor,20.6,165332.95
+ENTC,Professor,9.2,100056.38
+ENTC,Lab Technician,15.5,90032.89
+ENTC,Lab Technician,5.0,63948.84
+IT,Administrative Staff,14.9,89885.07
+ENTC,Lab Technician,2.2,65159.7
+IT,Lab Technician,4.3,78614.61
+Computer,Administrative Staff,16.1,84922.43
+Computer,Administrative Staff,12.3,81047.68
+AIML,Librarian,4.1,72160.46
+Computer,Professor,2.6,98340.19
+IT,Professor,25.9,171731.73
+Computer,Librarian,7.7,67797.44
+Computer,Professor,3.4,98400.59
+IT,Professor,2.3,107209.73
+IT,Lab Technician,6.2,80041.65
+Computer,Professor,13.6,129124.49
+IT,Professor,27.8,181468.36
+AIML,Professor,5.4,125002.0
+ENTC,Librarian,8.9,62795.12
+Computer,Professor,17.6,136101.16
+ENTC,Professor,2.0,83169.18
+IT,Lab Technician,2.5,75144.85
+Computer,Librarian,4.0,61975.84
+AIML,Administrative Staff,28.1,128432.27
+ENTC,Lab Technician,8.3,73742.99
+IT,Professor,14.0,136926.79
+IT,Lab Technician,15.4,107992.11
+ENTC,Administrative Staff,5.2,59904.37
+IT,Administrative Staff,28.0,117413.96
+IT,Lab Technician,8.5,87246.85
+ENTC,Lab Technician,20.8,95159.83
+IT,Professor,19.2,154370.48
+ENTC,Lab Technician,19.3,96448.66
+IT,Professor,2.7,108690.51
+ENTC,Lab Technician,13.2,81460.77
+IT,Administrative Staff,6.7,81661.14
+ENTC,Librarian,29.2,97645.6
+Computer,Librarian,1.2,56247.32
+AIML,Lab Technician,8.4,93276.23
+Computer,Librarian,10.8,73718.29
+Computer,Librarian,10.2,74531.34
+AIML,Administrative Staff,28.2,124103.68
+ENTC,Lab Technician,17.6,95606.01
+ENTC,Librarian,18.4,80114.33
+Computer,Administrative Staff,1.8,68496.99
+Computer,Administrative Staff,13.2,81738.67
+ENTC,Professor,21.7,134240.17
+ENTC,Lab Technician,6.2,70961.0
+Computer,Administrative Staff,12.5,79753.13
+ENTC,Librarian,13.5,73598.91
+AIML,Lab Technician,19.9,115547.63
+Computer,Administrative Staff,7.1,70548.78
+IT,Lab Technician,29.5,132634.19
+Computer,Librarian,15.1,79333.27
+IT,Professor,23.5,170481.42
+IT,Lab Technician,27.6,134708.72
+AIML,Administrative Staff,28.5,121579.27
+AIML,Lab Technician,22.4,122290.91
+Computer,Administrative Staff,23.1,96832.32
+ENTC,Lab Technician,8.5,75514.38
+IT,Lab Technician,4.9,78669.86
+AIML,Administrative Staff,16.5,96503.87
+AIML,Librarian,27.2,116331.97
+AIML,Librarian,0.7,64890.65
+AIML,Librarian,16.4,97090.0
+ENTC,Librarian,14.8,67548.41
+AIML,Lab Technician,25.3,135605.8
+IT,Professor,19.5,154881.96
+Computer,Professor,8.2,114022.77
+AIML,Administrative Staff,22.7,116059.52
+IT,Librarian,1.1,68462.29
+IT,Professor,22.7,167113.88
+IT,Lab Technician,7.5,83876.36
+ENTC,Administrative Staff,5.4,59367.14
+IT,Lab Technician,29.0,124827.96
+AIML,Librarian,28.3,114600.67
+Computer,Professor,21.1,150997.5
+IT,Administrative Staff,16.2,90334.99
+ENTC,Professor,25.6,154529.19
+AIML,Lab Technician,13.3,109625.13
+ENTC,Librarian,14.2,72050.04
+IT,Administrative Staff,26.5,118907.2
+AIML,Administrative Staff,1.3,70992.8
+ENTC,Administrative Staff,26.5,98814.48
+Computer,Professor,7.6,106706.22
+AIML,Librarian,23.9,109821.21
+AIML,Lab Technician,9.5,93784.33
+ENTC,Administrative Staff,21.2,91137.03
+Computer,Professor,21.8,153230.71
+Computer,Lab Technician,6.9,80991.9
+ENTC,Professor,25.1,147518.04
+Computer,Administrative Staff,1.8,63526.91
+Computer,Librarian,3.5,58032.93
+Computer,Professor,7.9,111051.38
+IT,Librarian,15.0,85590.74
+ENTC,Professor,29.8,158372.41
+AIML,Lab Technician,23.4,124561.42
+AIML,Administrative Staff,17.3,103525.01
+IT,Lab Technician,19.0,108964.32
+IT,Lab Technician,0.6,69776.79
+AIML,Administrative Staff,1.5,69288.6
+Computer,Administrative Staff,23.7,95588.85
+Computer,Librarian,3.9,57780.19
+IT,Professor,5.4,108627.07
+ENTC,Librarian,4.2,55197.78
+AIML,Librarian,2.9,62477.33
+ENTC,Administrative Staff,1.3,61647.59
+IT,Administrative Staff,17.5,94722.88
+AIML,Administrative Staff,5.9,74383.61
+AIML,Administrative Staff,12.5,94970.49
+Computer,Administrative Staff,12.6,78893.53
+IT,Librarian,3.1,72055.93
+AIML,Professor,19.9,166711.89
+AIML,Librarian,22.9,107783.26
+Computer,Administrative Staff,13.4,87849.49
+Computer,Lab Technician,9.7,89491.26
+IT,Lab Technician,29.8,131124.04
+AIML,Administrative Staff,15.5,99247.24
+AIML,Librarian,7.7,79675.52
+Computer,Professor,8.6,116016.93
+ENTC,Professor,8.8,108239.97
+Computer,Librarian,16.4,79063.76
+AIML,Librarian,28.0,119500.06
+AIML,Professor,9.9,135917.94
+AIML,Librarian,29.7,124034.25
+ENTC,Professor,26.3,149854.17
+AIML,Professor,21.8,179141.24
+ENTC,Administrative Staff,18.9,78859.73
+ENTC,Librarian,28.6,93769.06
+IT,Professor,7.4,114789.58
+Computer,Professor,13.3,127613.74
+Computer,Administrative Staff,27.2,101565.49
+IT,Administrative Staff,11.1,86231.75
+Computer,Lab Technician,5.7,79040.79
+Computer,Librarian,27.4,101143.06
+IT,Librarian,27.1,112122.88
+IT,Librarian,28.4,107861.69
+AIML,Administrative Staff,6.4,87770.07
+IT,Lab Technician,11.8,86391.05
+AIML,Administrative Staff,0.7,64655.6
+IT,Librarian,25.1,104652.88
+Computer,Lab Technician,18.8,99518.68
+Computer,Professor,27.2,170383.52
+ENTC,Lab Technician,3.2,67056.71
+AIML,Lab Technician,6.4,91443.18
+ENTC,Lab Technician,8.1,72573.98
+ENTC,Administrative Staff,24.2,94811.76
+AIML,Administrative Staff,3.2,73598.21
+IT,Librarian,11.4,79624.69
+ENTC,Professor,20.4,138337.87
+ENTC,Lab Technician,19.6,98222.45
+AIML,Professor,4.6,113610.97
+AIML,Professor,3.4,117881.06
+AIML,Lab Technician,26.6,137333.39
+AIML,Librarian,28.2,120508.21
+Computer,Administrative Staff,3.4,65056.18
+ENTC,Professor,12.2,121917.64
+IT,Lab Technician,19.4,109287.61
+IT,Administrative Staff,7.7,78021.17
+Computer,Lab Technician,24.5,110796.39
+Computer,Professor,8.7,118479.3
+IT,Professor,4.4,110643.22
+Computer,Administrative Staff,1.0,64926.14
+IT,Librarian,13.7,85550.48
+IT,Librarian,15.4,92041.45
+ENTC,Librarian,19.5,82246.75
+AIML,Librarian,13.1,82237.04
+IT,Administrative Staff,18.4,98178.01
+ENTC,Librarian,29.8,95602.83
+IT,Lab Technician,13.2,101139.82
+AIML,Librarian,12.8,87235.39
+Computer,Librarian,2.5,61792.89
+IT,Administrative Staff,24.4,116103.99
+IT,Librarian,10.9,81722.28
+AIML,Professor,29.1,196128.48
+Computer,Librarian,7.1,68314.7
+ENTC,Professor,23.0,142434.05
+IT,Administrative Staff,1.4,68786.92
+ENTC,Administrative Staff,10.9,74310.17
+Computer,Professor,3.2,96906.84
+AIML,Librarian,10.6,83019.12
+IT,Professor,5.1,115453.99
+IT,Administrative Staff,13.6,85476.38
+IT,Administrative Staff,13.2,88239.57
+AIML,Administrative Staff,1.8,72147.23
+Computer,Lab Technician,23.0,109751.74
+IT,Librarian,22.5,102209.05
+ENTC,Professor,12.2,117428.15
+AIML,Professor,25.9,183827.37
+ENTC,Professor,12.4,116560.82
+AIML,Administrative Staff,3.1,73945.42
+AIML,Administrative Staff,22.5,117058.88
+Computer,Professor,15.6,131654.55
+ENTC,Lab Technician,7.5,73123.55
+Computer,Lab Technician,22.9,116218.96
+AIML,Librarian,20.6,106510.38
+ENTC,Administrative Staff,5.0,57942.15
+IT,Administrative Staff,15.5,93117.4
+IT,Professor,11.4,136828.03
+AIML,Librarian,17.6,100189.8
+Computer,Administrative Staff,18.3,91242.04
+ENTC,Professor,15.4,123678.85
+AIML,Librarian,16.0,95922.04
+AIML,Administrative Staff,20.5,111447.04
+ENTC,Professor,10.2,108637.03
+Computer,Administrative Staff,2.9,61380.74
+ENTC,Administrative Staff,29.0,97840.52
+ENTC,Librarian,19.5,83367.8
+IT,Librarian,15.5,85938.17
+AIML,Lab Technician,7.2,92637.58
+ENTC,Professor,15.5,126231.8
+ENTC,Lab Technician,18.1,87225.99
+Computer,Librarian,1.8,57247.35
+ENTC,Librarian,7.4,60344.89
+AIML,Lab Technician,11.4,103972.83
+AIML,Librarian,29.0,118886.6
+Computer,Administrative Staff,2.0,64692.74
+IT,Administrative Staff,3.0,65957.33
+Computer,Librarian,3.2,63091.24
+AIML,Professor,12.2,137734.79
+IT,Administrative Staff,7.1,81621.09
+Computer,Lab Technician,1.6,65704.98
+Computer,Librarian,13.7,78445.58
+Computer,Librarian,3.8,61220.8
+IT,Professor,7.5,120953.07
+AIML,Professor,19.1,161974.41
+Computer,Administrative Staff,13.2,79317.46
+IT,Administrative Staff,2.5,70840.06
+IT,Librarian,26.3,100885.17
+IT,Administrative Staff,23.8,101621.2
+IT,Administrative Staff,4.4,66046.12
+AIML,Librarian,19.1,98711.24
+AIML,Professor,9.2,135576.31
+ENTC,Librarian,29.7,90398.92
+IT,Lab Technician,8.9,90482.03
+ENTC,Librarian,26.7,89838.78
+AIML,Administrative Staff,29.2,125608.0
+ENTC,Professor,21.9,136505.37
+Computer,Administrative Staff,10.0,74868.87
+AIML,Lab Technician,20.8,124016.6
+ENTC,Librarian,8.6,67965.52
+Computer,Professor,4.7,105772.27
+AIML,Professor,4.2,118740.69
+IT,Lab Technician,20.5,110230.21
+IT,Lab Technician,16.1,102855.54
+IT,Lab Technician,15.2,104149.2
+IT,Administrative Staff,23.4,108137.24
+AIML,Lab Technician,4.1,88250.6
+AIML,Professor,24.4,179531.51
+ENTC,Administrative Staff,25.6,91369.39
+ENTC,Lab Technician,4.1,67956.08
+ENTC,Administrative Staff,14.3,75037.42
+IT,Professor,9.6,121153.79
+IT,Lab Technician,29.2,130494.22
+AIML,Administrative Staff,4.3,74993.62
+AIML,Professor,25.0,182286.53
+Computer,Lab Technician,10.0,80451.43
+IT,Administrative Staff,6.3,80782.69
+ENTC,Professor,15.3,119240.9
+ENTC,Professor,24.8,144338.95
+ENTC,Lab Technician,23.1,101031.61
+ENTC,Administrative Staff,14.7,77311.16
+AIML,Professor,20.8,167313.28
+Computer,Administrative Staff,25.9,105233.33
+ENTC,Librarian,4.4,56316.82
+IT,Administrative Staff,13.8,88948.4
+ENTC,Librarian,26.0,90845.29
+ENTC,Administrative Staff,6.1,69888.78
+AIML,Librarian,26.4,121394.23
+Computer,Lab Technician,17.7,100564.23
+AIML,Librarian,8.9,82597.56
+ENTC,Librarian,11.3,65679.01
+Computer,Administrative Staff,16.8,85503.7
+IT,Lab Technician,29.3,133679.6
+ENTC,Administrative Staff,22.8,88505.2
+IT,Lab Technician,21.6,113535.79
+Computer,Lab Technician,10.2,83638.85
+ENTC,Administrative Staff,15.5,81833.85
+ENTC,Librarian,24.6,87931.76
+ENTC,Professor,18.1,130873.28
+Computer,Professor,17.7,134581.72
+AIML,Lab Technician,24.7,129847.79
+IT,Lab Technician,1.1,69608.08
+AIML,Professor,21.3,173607.47
+ENTC,Librarian,16.0,78686.17
+ENTC,Administrative Staff,18.5,83075.23
+ENTC,Administrative Staff,7.1,66123.73
+AIML,Administrative Staff,14.7,92621.92
+ENTC,Administrative Staff,4.1,54495.89
+ENTC,Lab Technician,9.1,74669.9
+IT,Administrative Staff,27.8,115403.32
+ENTC,Administrative Staff,4.5,64713.39
+Computer,Lab Technician,2.0,69232.59
+ENTC,Librarian,3.5,58513.79
+Computer,Librarian,19.8,86087.47
+ENTC,Administrative Staff,19.6,86034.6
+Computer,Professor,27.4,160826.54
+IT,Librarian,23.7,104626.52
+ENTC,Professor,0.8,80513.45
+AIML,Librarian,26.7,110667.0
+AIML,Administrative Staff,6.2,77694.24
+Computer,Professor,22.2,155856.83
+Computer,Lab Technician,18.5,105559.15
+IT,Librarian,20.2,92170.01
+AIML,Administrative Staff,28.1,124253.62
+ENTC,Administrative Staff,17.7,84867.61
+ENTC,Lab Technician,2.3,62411.84
+ENTC,Professor,19.3,133017.79
+Computer,Lab Technician,28.7,123810.41
+AIML,Librarian,22.8,111440.9
+Computer,Professor,16.0,134333.46
+IT,Lab Technician,17.4,105380.82
+AIML,Professor,20.6,163483.38
+IT,Librarian,4.4,67804.46
+IT,Librarian,20.3,95232.15
+Computer,Professor,1.8,92944.09
+IT,Professor,29.6,188039.23
+AIML,Administrative Staff,29.8,128454.32
+AIML,Librarian,2.9,70426.36
+IT,Lab Technician,29.8,131443.54
+Computer,Professor,22.8,148591.87
+AIML,Lab Technician,7.8,93651.31
+Computer,Professor,1.5,90625.81
+IT,Lab Technician,6.6,86344.8
+AIML,Professor,7.7,127463.21
+IT,Lab Technician,15.4,103603.24
+ENTC,Administrative Staff,7.5,69776.51
+ENTC,Professor,16.9,126261.18
+Computer,Librarian,16.9,90303.74
+ENTC,Librarian,12.5,68886.41
+AIML,Lab Technician,25.6,133647.71
+IT,Librarian,29.0,109957.93
+AIML,Lab Technician,8.0,88902.03
+IT,Lab Technician,2.0,68798.36
+IT,Professor,6.1,115317.05
+ENTC,Administrative Staff,28.7,96705.85
+Computer,Professor,22.5,156399.53
+AIML,Lab Technician,16.8,110430.6
+ENTC,Administrative Staff,8.2,69773.92
+AIML,Administrative Staff,27.5,120930.75
+IT,Lab Technician,22.4,116565.85
+AIML,Administrative Staff,5.0,84618.5
+Computer,Librarian,16.7,80267.24
+AIML,Librarian,5.5,78610.45
+AIML,Lab Technician,27.5,144393.51
+IT,Professor,23.0,165162.32
+Computer,Professor,21.4,150068.45
+AIML,Librarian,1.0,68909.18
+IT,Professor,16.1,142929.93
+AIML,Lab Technician,3.7,82775.91
+Computer,Lab Technician,18.8,102602.66
+ENTC,Librarian,14.0,70249.67
+Computer,Administrative Staff,20.7,91456.61
+IT,Librarian,11.7,75506.71
+IT,Lab Technician,2.9,74439.28
+IT,Professor,7.3,117336.47
+IT,Professor,20.7,161973.28
+ENTC,Professor,28.9,154543.96
+AIML,Professor,9.3,134635.52
+ENTC,Librarian,22.8,91565.42
+IT,Administrative Staff,2.1,67102.56
+AIML,Administrative Staff,1.4,71520.45
+AIML,Librarian,7.2,80494.41
+AIML,Professor,23.3,177241.98
+IT,Professor,8.4,121681.81
+ENTC,Administrative Staff,3.6,55701.78
+AIML,Administrative Staff,23.0,115375.63
+AIML,Professor,1.3,110524.5
+ENTC,Librarian,0.9,51415.7
+Computer,Lab Technician,20.7,106182.9
+ENTC,Administrative Staff,15.0,79498.35
+IT,Administrative Staff,7.9,80022.98
+AIML,Lab Technician,14.0,104037.04
+AIML,Administrative Staff,13.5,101725.05
+Computer,Administrative Staff,10.0,74190.04
+ENTC,Administrative Staff,22.2,90210.73
+Computer,Administrative Staff,11.6,74256.44
+Computer,Professor,28.6,174296.42
+Computer,Librarian,24.0,97274.86
+AIML,Lab Technician,19.2,113347.81
+Computer,Librarian,23.8,90854.36
+AIML,Professor,23.8,181244.01
+IT,Professor,23.2,165283.84
+AIML,Administrative Staff,29.0,124669.16
+IT,Administrative Staff,7.0,71953.79
+ENTC,Librarian,14.2,71094.99
+Computer,Administrative Staff,29.9,113438.35
+IT,Lab Technician,10.8,94580.01
+Computer,Librarian,10.8,68861.92
+ENTC,Professor,24.4,147243.61
+ENTC,Professor,20.5,140117.6
+Computer,Administrative Staff,17.0,86234.76
+AIML,Lab Technician,6.0,87835.13
+Computer,Librarian,18.0,85387.04
+Computer,Lab Technician,8.7,77209.52
+ENTC,Administrative Staff,6.3,61693.92
+AIML,Administrative Staff,18.1,102999.05
+AIML,Lab Technician,24.5,131048.56
+IT,Lab Technician,9.7,89719.53
+AIML,Librarian,18.1,100159.56
+Computer,Librarian,19.2,88751.78
+ENTC,Lab Technician,6.0,70019.43
+ENTC,Professor,14.8,124375.53
+AIML,Librarian,20.7,96248.79
+AIML,Librarian,5.4,79058.54
+ENTC,Lab Technician,16.4,90498.13
+AIML,Professor,17.4,160687.68
+IT,Librarian,16.6,83614.9
+Computer,Administrative Staff,26.3,102016.35
+AIML,Professor,23.4,179572.75
+ENTC,Librarian,5.4,60456.32
+ENTC,Administrative Staff,18.1,77955.04
+ENTC,Administrative Staff,17.4,86693.63
+AIML,Professor,29.8,198458.04
+Computer,Lab Technician,4.8,76764.39
+AIML,Lab Technician,17.5,109900.87
+AIML,Librarian,2.7,64821.67
+ENTC,Librarian,28.5,97467.51
+IT,Librarian,19.2,96917.48
+AIML,Lab Technician,15.1,104651.69
+ENTC,Lab Technician,17.2,92475.44
+IT,Professor,19.0,147685.26
+Computer,Librarian,14.0,79807.46
+ENTC,Lab Technician,26.3,111718.42
+ENTC,Administrative Staff,2.9,60182.99
+ENTC,Lab Technician,13.2,82734.35
+IT,Lab Technician,14.6,97639.3
+IT,Administrative Staff,24.6,107477.57
+AIML,Professor,7.3,127826.84
+ENTC,Lab Technician,11.8,79855.51
+Computer,Professor,16.1,133571.21
+Computer,Lab Technician,27.6,117672.2
+Computer,Professor,26.9,164498.52
+AIML,Administrative Staff,23.8,111691.72
+IT,Lab Technician,16.8,104837.52
+IT,Administrative Staff,6.6,73057.24
+AIML,Administrative Staff,19.6,105723.38
+IT,Professor,29.6,185071.13
+AIML,Administrative Staff,16.6,101710.6
+IT,Professor,0.9,93213.14
+IT,Librarian,15.4,85797.46
+AIML,Professor,19.4,161129.07
+ENTC,Professor,9.6,115329.02
+ENTC,Librarian,17.8,74364.23
+IT,Administrative Staff,21.1,104069.52
+AIML,Professor,9.6,135693.33
+IT,Professor,21.4,164739.37
+ENTC,Lab Technician,11.5,87058.06
+IT,Professor,10.4,128425.94
+IT,Librarian,13.9,85391.1
+Computer,Administrative Staff,5.1,70987.54
+IT,Professor,25.8,171082.26
+AIML,Administrative Staff,11.8,94685.23
+AIML,Lab Technician,10.0,104375.23
+ENTC,Administrative Staff,24.9,91867.71
+Computer,Lab Technician,24.2,114729.28
+IT,Librarian,26.0,104132.56
+Computer,Administrative Staff,17.1,91877.68
+Computer,Librarian,11.4,79333.52
+Computer,Lab Technician,0.7,66292.86
+ENTC,Professor,28.6,156235.45
+ENTC,Professor,6.6,97721.66
+IT,Lab Technician,21.5,117244.64
+AIML,Administrative Staff,14.0,96442.88
+Computer,Librarian,2.7,63812.36
+ENTC,Administrative Staff,25.6,97158.41
+ENTC,Administrative Staff,13.9,78319.04
+IT,Lab Technician,3.6,78473.22
+AIML,Professor,16.3,153149.47
+IT,Lab Technician,24.3,122025.9
+IT,Lab Technician,25.2,125739.16
+AIML,Professor,20.5,173370.53
+Computer,Professor,28.6,165518.1
+IT,Lab Technician,4.1,77304.21
+Computer,Lab Technician,6.3,74344.77
+ENTC,Professor,1.1,89816.02
+AIML,Lab Technician,3.2,87344.59
+AIML,Librarian,15.1,97615.94
+Computer,Administrative Staff,6.8,69924.31
+Computer,Administrative Staff,15.2,88396.44
+IT,Administrative Staff,11.8,87248.94
+IT,Librarian,23.6,107549.34

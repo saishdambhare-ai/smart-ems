@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMS — Employee Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:   #0d1b2a;
+      --blue:   #1a6ef5;
+      --cyan:   #00c2cb;
+      --white:  #f8faff;
+      --grey:   #8a9bb5;
+      --card:   #131e2e;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── BACKGROUND GRID ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(26,110,245,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,110,245,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 60px;
+      background: rgba(13,27,42,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.3rem;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a {
+      color: var(--grey); text-decoration: none; font-size: 0.9rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--blue); color: #fff !important;
+      padding: 9px 22px; border-radius: 8px; font-weight: 500;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: #1458d0 !important; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(26,110,245,.15);
+      border: 1px solid rgba(26,110,245,.3);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 0.8rem; color: #7ab4ff;
+      margin-bottom: 32px;
+      animation: fadeUp .6s ease both;
+    }
+    .hero-badge span { width:6px; height:6px; background:var(--cyan); border-radius:50%; display:inline-block; animation: pulse 2s infinite; }
+
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+      letter-spacing: -2px;
+      animation: fadeUp .7s .1s ease both;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      margin-top: 20px; max-width: 560px;
+      font-size: 1.1rem; color: var(--grey); line-height: 1.7;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-btns {
+      margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp .7s .3s ease both;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), #1458d0);
+      color: #fff; padding: 14px 32px; border-radius: 10px;
+      font-size: 1rem; font-weight: 500; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(26,110,245,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(26,110,245,.55); }
+    .btn-ghost {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--grey); padding: 14px 32px; border-radius: 10px;
+      font-size: 1rem; text-decoration: none; transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.25); color: var(--white); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center; gap: 0;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; margin: 0 auto 80px;
+      max-width: 800px; overflow: hidden;
+      animation: fadeUp .7s .4s ease both;
+    }
+    .stat {
+      flex: 1; padding: 28px; text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--grey));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--grey); margin-top: 4px; }
+
+    /* ── FEATURES ── */
+    .features {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto; padding: 0 20px 100px;
+    }
+    .section-tag {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px;
+      color: var(--blue); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 50px;
+    }
+
+    .feature-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .feature-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px;
+      transition: border-color .3s, transform .3s;
+      cursor: default;
+    }
+    .feature-card:hover {
+      border-color: rgba(26,110,245,.4);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(26,110,245,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .feature-card p { color: var(--grey); font-size: 0.9rem; line-height: 1.6; }
+    .feature-card .tag {
+      display: inline-block; margin-top: 16px;
+      background: rgba(0,194,203,.12); color: var(--cyan);
+      font-size: 0.72rem; padding: 4px 10px; border-radius: 100px;
+    }
+
+    /* ── ML HIGHLIGHT ── */
+    .ml-section {
+      position: relative; z-index: 1;
+      max-width: 1100px; margin: 0 auto 100px; padding: 0 20px;
+    }
+    .ml-card {
+      background: linear-gradient(135deg, rgba(26,110,245,.15) 0%, rgba(0,194,203,.08) 100%);
+      border: 1px solid rgba(26,110,245,.3);
+      border-radius: 24px; padding: 60px; display: flex;
+      align-items: center; gap: 60px;
+    }
+    .ml-text { flex: 1; }
+    .ml-text h2 {
+      font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .ml-text p { color: var(--grey); line-height: 1.7; margin-bottom: 28px; }
+    .ml-visual {
+      flex: 0 0 240px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .risk-bar { background: rgba(255,255,255,.05); border-radius: 12px; padding: 14px 18px; }
+    .risk-label { font-size: 0.8rem; color: var(--grey); margin-bottom: 8px; display: flex; justify-content: space-between; }
+    .risk-track { height: 8px; background: rgba(255,255,255,.08); border-radius: 100px; overflow: hidden; }
+    .risk-fill { height: 100%; border-radius: 100px; }
+    .risk-high .risk-fill   { width: 78%; background: linear-gradient(90deg, #ff5252, #ff8a80); }
+    .risk-med .risk-fill    { width: 42%; background: linear-gradient(90deg, #ffab40, #ffd740); }
+    .risk-low .risk-fill    { width: 18%; background: linear-gradient(90deg, #69f0ae, #00e5ff); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 30px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      color: var(--grey); font-size: 0.85rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    @media(max-width:768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .ml-card { flex-direction: column; padding: 36px; }
+      .ml-visual { flex: 1; width: 100%; }
+      .stats-bar { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      footer { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">EMS</div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#ml">AI Insights</a>
+    <a href="register.html">Register</a>
+    <a href="login.html" class="nav-cta">Login →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><span></span> AI-Powered Employee Management</div>
+  <h1>Manage Smarter.<br><span>Predict Better.</span></h1>
+  <p class="hero-sub">
+    A unified platform to manage employee records, track attendance,
+    predict salaries, and identify attrition risk — powered by machine learning.
+  </p>
+  <div class="hero-btns">
+    <a href="login.html" class="btn-primary">Get Started →</a>
+    <a href="register.html" class="btn-ghost">Register Employee</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num" id="totalCount">—</div>
+    <div class="stat-label">Total Employees</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Departments</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">ML Models Active</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">~93%</div>
+    <div class="stat-label">Prediction Accuracy</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-tag">Core Features</div>
+  <div class="section-title">Everything you need</div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3>Employee Records</h3>
+      <p>Full CRUD operations — add, update, delete employee profiles with department and role tracking.</p>
+      <span class="tag">MongoDB</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Admin Dashboard</h3>
+      <p>Real-time overview of workforce metrics, active employees, and department distribution.</p>
+      <span class="tag">Live Data</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔐</div>
+      <h3>Role-Based Access</h3>
+      <p>Separate admin and employee portals with session-based authentication.</p>
+      <span class="tag">Secure</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💰</div>
+      <h3>Salary Prediction</h3>
+      <p>Linear regression model predicts expected salary based on department, profession, and experience.</p>
+      <span class="tag">ML · Linear Regression</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚠️</div>
+      <h3>Attrition Prediction</h3>
+      <p>Random Forest classifier identifies employees at high risk of leaving — before it happens.</p>
+      <span class="tag">ML · Random Forest</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Bulk Risk Scan</h3>
+      <p>Scan all employees at once to generate a risk report — with probability scores and risk levels.</p>
+      <span class="tag">Admin Only</span>
+    </div>
+  </div>
+</section>
+
+<!-- ML HIGHLIGHT -->
+<section class="ml-section" id="ml">
+  <div class="ml-card">
+    <div class="ml-text">
+      <div class="section-tag">AI-Powered</div>
+      <h2>Predict Attrition Before It Happens</h2>
+      <p>Our Random Forest model analyzes department, profession, experience, and activity patterns to predict which employees are at risk — giving HR teams time to act.</p>
+      <a href="login.html" class="btn-primary" style="display:inline-block">Try Prediction Tool →</a>
+    </div>
+    <div class="ml-visual">
+      <div class="risk-bar risk-high">
+        <div class="risk-label"><span>Emp A — IT, 1yr</span><span>78%</span></div>
+        <div class="risk-track"><div class="risk-fill"></div></div>
+      </div>
+      <div class="risk-bar risk-med">
+        <div class="risk-label"><span>Emp B — CS, 4yr</span><span>42%</span></div>
+        <div class="risk-track"><div class="risk-fill"></div></div>
+      </div>
+      <div class="risk-bar risk-low">
+        <div class="risk-label"><span>Emp C — AIML, 9yr</span><span>18%</span></div>
+        <div class="risk-track"><div class="risk-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Employee Management System</span>
+  <span>Built with Node.js · MongoDB · Python ML</span>
+</footer>
+
+<script>
+  // Pull live employee count
+  fetch('/get_all_employees')
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById('totalCount').textContent = d.length;
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ML Predictions — EMS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0d1b2a; --blue:#1a6ef5; --cyan:#00c2cb;
+      --white:#f8faff; --grey:#8a9bb5; --card:#131e2e;
+      --border:rgba(255,255,255,0.07);
+      --success:#22c55e; --warn:#f59e0b; --danger:#ef4444;
+    }
+    * { margin:0;padding:0;box-sizing:border-box; }
+    body {
+      font-family:'DM Sans',sans-serif; background:var(--navy);
+      color:var(--white); min-height:100vh;
+    }
+    body::before {
+      content:''; position:fixed; inset:0; z-index:0;
+      background-image:
+        linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);
+      background-size:60px 60px; pointer-events:none;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position:fixed; left:0; top:0; bottom:0; width:240px;
+      background:var(--card); border-right:1px solid var(--border);
+      display:flex; flex-direction:column; z-index:10;
+    }
+    .sidebar-logo {
+      padding:28px 24px; font-family:'Syne',sans-serif; font-weight:800; font-size:1.3rem;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      border-bottom:1px solid var(--border);
+    }
+    .sidebar-nav { flex:1; padding:20px 12px; display:flex; flex-direction:column; gap:4px; }
+    .nav-item {
+      display:flex; align-items:center; gap:12px; padding:11px 16px;
+      border-radius:10px; color:var(--grey); text-decoration:none; font-size:.9rem; transition:all .2s;
+    }
+    .nav-item:hover,.nav-item.active { background:rgba(26,110,245,.12); color:var(--white); }
+    .nav-item.active { color:#7ab4ff; }
+    .nav-icon { font-size:1.1rem; width:22px; text-align:center; }
+    .sidebar-bottom { padding:16px 12px; border-top:1px solid var(--border); }
+    .logout-link {
+      display:flex; align-items:center; gap:10px; padding:11px 16px;
+      border-radius:10px; color:var(--danger); text-decoration:none; font-size:.9rem; transition:background .2s;
+    }
+    .logout-link:hover { background:rgba(239,68,68,.1); }
+
+    /* MAIN */
+    .main { margin-left:240px; padding:32px; position:relative; z-index:1; }
+    .page-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; margin-bottom:4px; }
+    .page-sub   { color:var(--grey); font-size:.9rem; margin-bottom:32px; }
+
+    /* TABS */
+    .tabs { display:flex; gap:4px; margin-bottom:28px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:6px; width:fit-content; }
+    .tab {
+      padding:9px 22px; border-radius:8px; cursor:pointer;
+      font-size:.9rem; color:var(--grey); transition:all .2s; border:none; background:transparent; color:var(--grey); font-family:'DM Sans',sans-serif;
+    }
+    .tab.active { background:rgba(26,110,245,.2); color:#7ab4ff; }
+
+    /* PANELS */
+    .panel { display:none; }
+    .panel.active { display:block; animation:fadeIn .4s ease; }
+
+    @keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+    /* PREDICTION LAYOUT */
+    .predict-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+
+    .pred-form-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:16px; padding:30px;
+    }
+    .pred-form-card h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:24px; }
+
+    .form-group { margin-bottom:18px; }
+    .form-group label { display:block; font-size:.82rem; color:var(--grey); text-transform:uppercase; letter-spacing:.8px; margin-bottom:8px; }
+    .form-group select, .form-group input {
+      width:100%; background:rgba(255,255,255,.05); border:1px solid var(--border);
+      color:var(--white); padding:11px 14px; border-radius:9px; font-size:.95rem;
+      font-family:'DM Sans',sans-serif; outline:none; transition:border-color .2s;
+      appearance:none; -webkit-appearance:none;
+    }
+    .form-group select:focus, .form-group input:focus { border-color:rgba(26,110,245,.5); }
+    .form-group select option { background:#1a2d42; }
+
+    .range-row { display:flex; align-items:center; gap:14px; }
+    .range-row input[type=range] {
+      flex:1; accent-color:var(--blue); cursor:pointer;
+      background:transparent; border:none; padding:0;
+    }
+    .range-val {
+      min-width:50px; text-align:right; font-size:1rem; font-weight:500; color:#7ab4ff;
+    }
+
+    .pred-btn {
+      width:100%; background:linear-gradient(135deg,var(--blue),#1458d0);
+      color:#fff; border:none; padding:13px; border-radius:10px;
+      font-size:1rem; font-family:'DM Sans',sans-serif;
+      cursor:pointer; transition:opacity .2s; margin-top:6px;
+    }
+    .pred-btn:hover   { opacity:.85; }
+    .pred-btn:disabled { opacity:.4; cursor:not-allowed; }
+
+    /* RESULT CARD */
+    .result-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:16px; padding:30px;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; min-height:300px;
+    }
+    .result-empty { color:var(--grey); }
+    .result-empty .big-icon { font-size:3rem; margin-bottom:16px; opacity:.4; }
+    .result-empty p { font-size:.9rem; line-height:1.6; }
+
+    /* Salary result */
+    .salary-result-amount {
+      font-family:'Syne',sans-serif; font-size:3rem; font-weight:800;
+      background:linear-gradient(135deg,var(--blue),var(--cyan));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      margin-bottom:8px;
+    }
+    .salary-result-sub { color:var(--grey); font-size:.9rem; margin-bottom:28px; }
+    .salary-breakdown {
+      width:100%; background:rgba(255,255,255,.04); border-radius:12px; padding:16px;
+      text-align:left;
+    }
+    .breakdown-row { display:flex; justify-content:space-between; padding:6px 0; font-size:.85rem; border-bottom:1px solid rgba(255,255,255,.05); }
+    .breakdown-row:last-child { border-bottom:none; }
+    .breakdown-label { color:var(--grey); }
+    .breakdown-val   { color:var(--white); font-weight:500; }
+
+    /* Attrition result */
+    .attrition-meter { position:relative; width:160px; height:80px; margin-bottom:24px; }
+    .attrition-meter svg { overflow:visible; }
+    .gauge-track { fill:none; stroke:rgba(255,255,255,.08); stroke-width:14; stroke-linecap:round; }
+    .gauge-fill  { fill:none; stroke-width:14; stroke-linecap:round;
+                   stroke-dasharray:251.2; transition:stroke-dashoffset 1s ease; }
+
+    .risk-label-big {
+      font-family:'Syne',sans-serif; font-size:2rem; font-weight:800; margin-bottom:6px;
+    }
+    .risk-label-big.High   { color:#fca5a5; }
+    .risk-label-big.Medium { color:#fcd34d; }
+    .risk-label-big.Low    { color:#86efac; }
+
+    .risk-desc { color:var(--grey); font-size:.88rem; max-width:260px; line-height:1.6; }
+
+    .risk-factors {
+      width:100%; margin-top:20px; background:rgba(255,255,255,.04);
+      border-radius:12px; padding:16px; text-align:left;
+    }
+    .risk-factors h4 { font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--grey); margin-bottom:12px; }
+    .factor-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; font-size:.83rem; }
+    .factor-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+
+    /* Error state */
+    .error-msg { color:#fca5a5; font-size:.9rem; text-align:center; }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">EMS Admin</div>
+  <nav class="sidebar-nav">
+    <a class="nav-item" href="admin.html"><span class="nav-icon">📊</span> Dashboard</a>
+    <a class="nav-item" href="manage.html"><span class="nav-icon">👥</span> Manage Employees</a>
+    <a class="nav-item active" href="predict.html"><span class="nav-icon">🤖</span> ML Predictions</a>
+  </nav>
+  <div class="sidebar-bottom">
+    <a class="logout-link" href="index.html"><span>🚪</span> Logout</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="page-title">🤖 ML Predictions</div>
+  <p class="page-sub">Powered by scikit-learn — Linear Regression & Random Forest</p>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('salary',this)">💰 Salary Prediction</button>
+    <button class="tab" onclick="switchTab('attrition',this)">⚠️ Attrition Prediction</button>
+  </div>
+
+  <!-- ── SALARY PANEL ── -->
+  <div class="panel active" id="panel-salary">
+    <div class="predict-grid">
+      <div class="pred-form-card">
+        <h3>Salary Prediction</h3>
+        <p style="color:var(--grey);font-size:.85rem;margin-bottom:20px;">
+          Uses Linear Regression trained on 500 synthetic samples. Predicts expected annual salary based on role parameters.
+        </p>
+        <div class="form-group">
+          <label>Department</label>
+          <select id="s-dept">
+            <option value="">Select Department</option>
+            <option value="IT">IT</option>
+            <option value="Computer">Computer</option>
+            <option value="ENTC">ENTC</option>
+            <option value="AIML">AIML</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Profession</label>
+          <select id="s-prof">
+            <option value="">Select Profession</option>
+            <option value="Professor">Professor</option>
+            <option value="Lab Technician">Lab Technician</option>
+            <option value="Administrative Staff">Administrative Staff</option>
+            <option value="Librarian">Librarian</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Experience (years)</label>
+          <div class="range-row">
+            <input type="range" id="s-exp" min="0" max="30" step="0.5" value="5" oninput="document.getElementById('s-exp-val').textContent=this.value+'y'">
+            <div class="range-val" id="s-exp-val">5y</div>
+          </div>
+        </div>
+        <button class="pred-btn" id="salaryBtn" onclick="predictSalary()">Predict Salary</button>
+      </div>
+
+      <div class="result-card" id="salaryResult">
+        <div class="result-empty">
+          <div class="big-icon">💰</div>
+          <p>Fill in the form and click<br><strong>Predict Salary</strong> to see results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ATTRITION PANEL ── -->
+  <div class="panel" id="panel-attrition">
+    <div class="predict-grid">
+      <div class="pred-form-card">
+        <h3>Attrition Risk Prediction</h3>
+        <p style="color:var(--grey);font-size:.85rem;margin-bottom:20px;">
+          Random Forest Classifier trained on 500 samples. Predicts likelihood of an employee leaving.
+        </p>
+        <div class="form-group">
+          <label>Department</label>
+          <select id="a-dept">
+            <option value="">Select Department</option>
+            <option value="IT">IT</option>
+            <option value="Computer">Computer</option>
+            <option value="ENTC">ENTC</option>
+            <option value="AIML">AIML</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Profession</label>
+          <select id="a-prof">
+            <option value="">Select Profession</option>
+            <option value="Professor">Professor</option>
+            <option value="Lab Technician">Lab Technician</option>
+            <option value="Administrative Staff">Administrative Staff</option>
+            <option value="Librarian">Librarian</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Experience (years)</label>
+          <div class="range-row">
+            <input type="range" id="a-exp" min="0" max="30" step="0.5" value="3" oninput="document.getElementById('a-exp-val').textContent=this.value+'y'">
+            <div class="range-val" id="a-exp-val">3y</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Login Activity (sessions/week)</label>
+          <div class="range-row">
+            <input type="range" id="a-login" min="0" max="10" step="1" value="5" oninput="document.getElementById('a-login-val').textContent=this.value">
+            <div class="range-val" id="a-login-val">5</div>
+          </div>
+        </div>
+        <button class="pred-btn" id="attritionBtn" onclick="predictAttrition()">Predict Attrition Risk</button>
+      </div>
+
+      <div class="result-card" id="attritionResult">
+        <div class="result-empty">
+          <div class="big-icon">⚠️</div>
+          <p>Fill in the form and click<br><strong>Predict Attrition Risk</strong> to see results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('panel-' + name).classList.add('active');
+}
+
+async function predictSalary() {
+  const dept = document.getElementById('s-dept').value;
+  const prof = document.getElementById('s-prof').value;
+  const exp  = document.getElementById('s-exp').value;
+  const btn  = document.getElementById('salaryBtn');
+  const res  = document.getElementById('salaryResult');
+
+  if (!dept || !prof) { alert('Please select department and profession.'); return; }
+
+  btn.disabled = true; btn.textContent = 'Predicting…';
+  res.innerHTML = '<p style="color:var(--grey)">Contacting ML service…</p>';
+
+  try {
+    const r    = await fetch('/api/predict/salary', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ department:dept, profession:prof, experience:Number(exp) })
+    });
+    const data = await r.json();
+    if (data.error) throw new Error(data.error);
+
+    const salaryFormatted = '₹' + data.salary.toLocaleString('en-IN', {maximumFractionDigits:0});
+
+    res.innerHTML = `
+      <div class="salary-result-amount">${salaryFormatted}</div>
+      <div class="salary-result-sub">Predicted Annual Salary</div>
+      <div class="salary-breakdown">
+        <div class="breakdown-row"><span class="breakdown-label">Department</span><span class="breakdown-val">${dept}</span></div>
+        <div class="breakdown-row"><span class="breakdown-label">Profession</span><span class="breakdown-val">${prof}</span></div>
+        <div class="breakdown-row"><span class="breakdown-label">Experience</span><span class="breakdown-val">${exp} years</span></div>
+        <div class="breakdown-row"><span class="breakdown-label">Monthly</span><span class="breakdown-val">₹${(data.salary/12).toLocaleString('en-IN',{maximumFractionDigits:0})}</span></div>
+        <div class="breakdown-row"><span class="breakdown-label">Model</span><span class="breakdown-val">Linear Regression</span></div>
+      </div>`;
+  } catch(e) {
+    res.innerHTML = `<p class="error-msg">⚠️ ${e.message}<br><br>Make sure the ML server is running:<br><code style="background:rgba(255,255,255,.08);padding:2px 8px;border-radius:4px;font-size:.8rem">python ml_service/ml_server.py</code></p>`;
+  } finally {
+    btn.disabled = false; btn.textContent = 'Predict Salary';
+  }
+}
+
+async function predictAttrition() {
+  const dept  = document.getElementById('a-dept').value;
+  const prof  = document.getElementById('a-prof').value;
+  const exp   = document.getElementById('a-exp').value;
+  const login = document.getElementById('a-login').value;
+  const btn   = document.getElementById('attritionBtn');
+  const res   = document.getElementById('attritionResult');
+
+  if (!dept || !prof) { alert('Please select department and profession.'); return; }
+
+  btn.disabled = true; btn.textContent = 'Predicting…';
+  res.innerHTML = '<p style="color:var(--grey)">Analyzing…</p>';
+
+  try {
+    const r    = await fetch('/api/predict/attrition', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ department:dept, profession:prof, experience:Number(exp), login_activity:Number(login) })
+    });
+    const data = await r.json();
+    if (data.error) throw new Error(data.error);
+
+    const pct = Math.round(data.probability * 100);
+    const riskClass = data.risk;
+
+    // Gauge arc
+    const offset = 251.2 - (251.2 * data.probability);
+    const strokeColor = riskClass==='High' ? '#ef4444' : (riskClass==='Medium' ? '#f59e0b' : '#22c55e');
+
+    const desc = {
+      High:   'This employee shows multiple risk factors. Consider immediate retention strategies — check compensation, workload, and career growth opportunities.',
+      Medium: 'Moderate risk detected. Monitor engagement and consider proactive check-ins to address potential concerns.',
+      Low:    'Low attrition risk. Employee shows stable engagement patterns and favorable role conditions.'
+    };
+
+    const factors = [];
+    if (Number(exp) < 2) factors.push({ color:'#fca5a5', text:'Low experience (< 2 years)' });
+    if (Number(login) < 3) factors.push({ color:'#fca5a5', text:'Low login activity' });
+    if (Number(exp) >= 5) factors.push({ color:'#86efac', text:'Good experience level' });
+    if (Number(login) >= 7) factors.push({ color:'#86efac', text:'High engagement / activity' });
+
+    const factorHtml = factors.map(f =>
+      `<div class="factor-row"><div class="factor-dot" style="background:${f.color}"></div><span style="color:var(--grey)">${f.text}</span></div>`
+    ).join('');
+
+    res.innerHTML = `
+      <svg class="attrition-meter" width="160" height="90" viewBox="0 0 160 90">
+        <path class="gauge-track" d="M 20 80 A 60 60 0 0 1 140 80" />
+        <path class="gauge-fill" id="gaugeFill"
+          d="M 20 80 A 60 60 0 0 1 140 80"
+          style="stroke:${strokeColor};stroke-dashoffset:${offset}" />
+        <text x="80" y="76" text-anchor="middle" fill="${strokeColor}"
+              font-size="22" font-family="Syne" font-weight="800">${pct}%</text>
+      </svg>
+      <div class="risk-label-big ${riskClass}">${riskClass} Risk</div>
+      <div class="risk-desc">${desc[riskClass]}</div>
+      ${factors.length ? `<div class="risk-factors"><h4>Key Factors</h4>${factorHtml}</div>` : ''}`;
+  } catch(e) {
+    res.innerHTML = `<p class="error-msg">⚠️ ${e.message}<br><br>Make sure the ML server is running:<br><code style="background:rgba(255,255,255,.08);padding:2px 8px;border-radius:4px;font-size:.8rem">python ml_service/ml_server.py</code></p>`;
+  } finally {
+    btn.disabled = false; btn.textContent = 'Predict Attrition Risk';
+  }
+}
+</script>
+</body>
+</html>
