@@ -113,7 +113,10 @@
           <div class="b-row"><span class="b-key">Experience</span><span>${empData.experience||0} years</span></div>
           <div class="b-row"><span class="b-key">Model</span><span>Linear Regression</span></div>
         </div>`;
-    } catch(e) { el.innerHTML = offlineMsg('salary'); }
+    } catch(e) {
+  console.error("Salary Error:", e);
+  el.innerHTML = offlineMsg('salary');
+}
   }
 
   async function loadAttrition() {
@@ -138,13 +141,18 @@
           <div class="prob-track"><div class="prob-fill" style="width:${pct}%;background:${color}"></div></div>
         </div>
         <p style="color:var(--grey);font-size:.85rem;margin-top:14px;line-height:1.6">${desc[data.risk]}</p>`;
-    } catch(e) { el.innerHTML = offlineMsg('attrition'); }
+    } catch(e) {
+  console.error("Attrition Error:", e);
+  el.innerHTML = offlineMsg('attrition');
+}
   }
 
   function offlineMsg(type) {
-    return `<div class="ml-offline"><p>ML service is not running.<br>To enable ${type} prediction, open a terminal and run:<br><br>
-      <code>cd ml_service</code> then <code>python ml_server.py</code><br><br>Then refresh this page.</p></div>`;
-  }
+  return `<div class="ml-offline">
+    <p>⚠️ Unable to load ${type} prediction.<br>
+    Please try again in a few seconds.</p>
+  </div>`;
+}
 
   init();
 </script>
