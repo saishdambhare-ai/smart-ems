@@ -6,97 +6,44 @@
   <title>Employee Dashboard — EMS</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:#0d1b2a; --blue:#1a6ef5; --cyan:#00c2cb;
-      --white:#f8faff; --grey:#8a9bb5; --card:#131e2e;
-      --border:rgba(255,255,255,0.07);
-      --success:#22c55e; --warn:#f59e0b; --danger:#ef4444;
-    }
-    * { margin:0;padding:0;box-sizing:border-box; }
-    body {
-      font-family:'DM Sans',sans-serif; background:var(--navy);
-      color:var(--white); min-height:100vh; padding:40px 20px;
-      display:flex; flex-direction:column; align-items:center;
-    }
-    body::before {
-      content:''; position:fixed; inset:0; z-index:0;
-      background-image:
-        linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);
-      background-size:60px 60px; pointer-events:none;
-    }
-    .container { position:relative; z-index:1; width:100%; max-width:820px; }
-
-    /* Header */
-    .header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
-    .header-left .logo {
-      font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
-    .header-left h1 { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; margin-top:4px; }
-    .header-left p  { color:var(--grey); font-size:.9rem; }
-    .logout-btn {
-      background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.2);
-      color:#fca5a5; padding:9px 18px; border-radius:9px; font-size:.85rem;
-      text-decoration:none; transition:background .2s;
-    }
-    .logout-btn:hover { background:rgba(239,68,68,.22); }
-
-    /* Stat row */
-    .stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:24px; }
-    .stat-card {
-      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px;
-      animation:fadeIn .5s ease;
-    }
-    .stat-label { font-size:.75rem; color:var(--grey); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
-    .stat-val   { font-family:'Syne',sans-serif; font-size:1.7rem; font-weight:800; }
-    .stat-val.blue { color:#7ab4ff; }
-    .stat-val.green{ color:var(--success); }
-    .stat-val.cyan { color:var(--cyan); }
-
-    /* Section card */
-    .section-card {
-      background:var(--card); border:1px solid var(--border); border-radius:16px;
-      overflow:hidden; margin-bottom:20px; animation:fadeIn .5s ease;
-    }
-    .section-head {
-      padding:18px 24px; border-bottom:1px solid var(--border);
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .section-head h3 { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700; }
-    .section-body { padding:24px; }
-
-    /* Profile rows */
-    .profile-row { display:flex; justify-content:space-between; padding:10px 0; font-size:.9rem; border-bottom:1px solid rgba(255,255,255,.04); }
-    .profile-row:last-child { border-bottom:none; }
-    .profile-key { color:var(--grey); }
-    .profile-val { font-weight:500; }
-
-    /* Salary prediction mini */
-    .salary-display {
-      text-align:center; padding:20px 0;
-    }
-    .salary-big {
-      font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-    }
-    .salary-sub { color:var(--grey); font-size:.85rem; margin-top:6px; }
-
-    /* Risk pill */
-    .risk-pill {
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 16px; border-radius:100px; font-size:.9rem; font-weight:500;
-    }
-    .risk-pill.High    { background:rgba(239,68,68,.15);  color:#fca5a5; }
-    .risk-pill.Medium  { background:rgba(245,158,11,.15); color:#fcd34d; }
-    .risk-pill.Low     { background:rgba(34,197,94,.15);  color:#86efac; }
-
-    .pred-note { color:var(--grey); font-size:.82rem; margin-top:12px; }
-    .error-note { color:#fca5a5; font-size:.82rem; }
-
-    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+    :root{--navy:#0d1b2a;--blue:#1a6ef5;--cyan:#00c2cb;--white:#f8faff;--grey:#8a9bb5;--card:#131e2e;--border:rgba(255,255,255,0.07);--success:#22c55e;--warn:#f59e0b;--danger:#ef4444;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;padding:40px 20px;display:flex;flex-direction:column;align-items:center;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+    .container{position:relative;z-index:1;width:100%;max-width:860px;}
+    .header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;}
+    .header-left .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .header-left h1{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;margin-top:4px;}
+    .header-left p{color:var(--grey);font-size:.9rem;}
+    .logout-btn{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.2);color:#fca5a5;padding:9px 18px;border-radius:9px;font-size:.85rem;text-decoration:none;transition:background .2s;}
+    .logout-btn:hover{background:rgba(239,68,68,.22);}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;animation:fadeIn .5s ease;}
+    .stat-label{font-size:.75rem;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .stat-val{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;word-break:break-word;}
+    .stat-val.blue{color:#7ab4ff;}.stat-val.green{color:var(--success);}.stat-val.cyan{color:var(--cyan);}
+    .section-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;animation:fadeIn .5s ease;}
+    .section-head{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .section-head h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;}
+    .section-head .badge{font-size:.72rem;color:var(--grey);background:rgba(255,255,255,.05);padding:3px 10px;border-radius:100px;}
+    .section-body{padding:24px;}
+    .salary-big{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
+    .salary-sub{color:var(--grey);font-size:.85rem;margin-top:6px;text-align:center;}
+    .salary-breakdown{width:100%;background:rgba(255,255,255,.04);border-radius:12px;padding:16px;margin-top:16px;}
+    .b-row{display:flex;justify-content:space-between;padding:7px 0;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.04);}
+    .b-row:last-child{border-bottom:none;}.b-key{color:var(--grey);}
+    .risk-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:100px;font-size:.95rem;font-weight:600;}
+    .risk-pill.High{background:rgba(239,68,68,.15);color:#fca5a5;}.risk-pill.Medium{background:rgba(245,158,11,.15);color:#fcd34d;}.risk-pill.Low{background:rgba(34,197,94,.15);color:#86efac;}
+    .prob-bar-wrap{margin-top:16px;}.prob-label{display:flex;justify-content:space-between;font-size:.8rem;color:var(--grey);margin-bottom:6px;}
+    .prob-track{height:10px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden;}
+    .prob-fill{height:100%;border-radius:100px;transition:width 1s ease;}
+    .ml-offline{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 18px;}
+    .ml-offline p{color:#fcd34d;font-size:.88rem;line-height:1.8;}
+    .ml-offline code{background:rgba(255,255,255,.1);padding:2px 8px;border-radius:4px;font-size:.82rem;font-family:monospace;}
+    .spinner{width:24px;height:24px;border:3px solid rgba(255,255,255,.1);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;margin:20px auto;}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:600px){.stat-row{grid-template-columns:1fr;}.salary-big{font-size:2rem;}}
   </style>
 </head>
 <body>
@@ -107,74 +54,47 @@
       <h1 id="welcomeMsg">Employee Portal</h1>
       <p>Your personal dashboard</p>
     </div>
-    <a href="index.html" class="logout-btn">Logout</a>
+    <a href="/logout" class="logout-btn">Logout</a>
   </div>
 
-  <!-- STAT ROW -->
   <div class="stat-row">
-    <div class="stat-card">
-      <div class="stat-label">Department</div>
-      <div class="stat-val blue" id="empDept">—</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Profession</div>
-      <div class="stat-val cyan" id="empProf">—</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Experience</div>
-      <div class="stat-val green" id="empExp">—</div>
-    </div>
+    <div class="stat-card"><div class="stat-label">Department</div><div class="stat-val blue" id="empDept">—</div></div>
+    <div class="stat-card"><div class="stat-label">Profession</div><div class="stat-val cyan" id="empProf">—</div></div>
+    <div class="stat-card"><div class="stat-label">Experience</div><div class="stat-val green" id="empExp">—</div></div>
   </div>
 
-  <!-- SALARY -->
   <div class="section-card">
-    <div class="section-head">
-      <h3>💰 Expected Salary</h3>
-      <span style="font-size:.78rem;color:var(--grey)">ML · Linear Regression</span>
-    </div>
-    <div class="section-body">
-      <div class="salary-display" id="salaryDisplay">
-        <p style="color:var(--grey)">Loading…</p>
-      </div>
-    </div>
+    <div class="section-head"><h3>💰 Expected Salary</h3><span class="badge">ML · Linear Regression</span></div>
+    <div class="section-body" id="salaryBody"><div class="spinner"></div></div>
   </div>
 
-  <!-- ATTRITION -->
   <div class="section-card">
-    <div class="section-head">
-      <h3>⚠️ My Retention Status</h3>
-      <span style="font-size:.78rem;color:var(--grey)">ML · Random Forest</span>
-    </div>
-    <div class="section-body" id="attritionDisplay">
-      <p style="color:var(--grey)">Loading…</p>
-    </div>
+    <div class="section-head"><h3>⚠️ My Retention Status</h3><span class="badge">ML · Random Forest</span></div>
+    <div class="section-body" id="attritionBody"><div class="spinner"></div></div>
   </div>
 </div>
 
 <script>
   let empData = null;
 
-  async function loadInfo() {
+  async function init() {
     try {
       const res = await fetch('/api/employee-info');
       if (!res.ok) throw new Error('Unauthorized');
       empData = await res.json();
-
-      document.getElementById('welcomeMsg').textContent = `Hello, ${empData.first_name} 👋`;
-      document.getElementById('empDept').textContent = empData.department;
-      document.getElementById('empProf').textContent = empData.profession;
+      document.getElementById('welcomeMsg').textContent = 'Hello, ' + empData.first_name + ' \uD83D\uDC4B';
+      document.getElementById('empDept').textContent = empData.department || '—';
+      document.getElementById('empProf').textContent = empData.profession || '—';
       document.getElementById('empExp').textContent  = (empData.experience || 0) + ' yrs';
-
-      fetchSalary();
-      fetchAttrition();
+      await Promise.all([loadSalary(), loadAttrition()]);
     } catch(e) {
-      alert('Session expired or not logged in.');
-      window.location.href = 'login.html';
+      alert('Session expired or not logged in. Redirecting...');
+      window.location.href = '/login.html';
     }
   }
 
-  async function fetchSalary() {
-    const el = document.getElementById('salaryDisplay');
+  async function loadSalary() {
+    const el = document.getElementById('salaryBody');
     try {
       const res  = await fetch('/api/predict/salary', {
         method:'POST', headers:{'Content-Type':'application/json'},
@@ -182,17 +102,22 @@
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-      const formatted = '₹' + data.salary.toLocaleString('en-IN',{maximumFractionDigits:0});
+      const annual  = '\u20B9' + data.salary.toLocaleString('en-IN',{maximumFractionDigits:0});
+      const monthly = '\u20B9' + (data.salary/12).toLocaleString('en-IN',{maximumFractionDigits:0});
       el.innerHTML = `
-        <div class="salary-big">${formatted}</div>
-        <div class="salary-sub">Predicted annual salary · ₹${(data.salary/12).toLocaleString('en-IN',{maximumFractionDigits:0})} / month</div>`;
-    } catch(e) {
-      el.innerHTML = `<p class="error-note">ML service unavailable</p>`;
-    }
+        <div class="salary-big">${annual}</div>
+        <div class="salary-sub">Predicted Annual Salary &nbsp;·&nbsp; ${monthly} / month</div>
+        <div class="salary-breakdown">
+          <div class="b-row"><span class="b-key">Department</span><span>${empData.department}</span></div>
+          <div class="b-row"><span class="b-key">Profession</span><span>${empData.profession}</span></div>
+          <div class="b-row"><span class="b-key">Experience</span><span>${empData.experience||0} years</span></div>
+          <div class="b-row"><span class="b-key">Model</span><span>Linear Regression</span></div>
+        </div>`;
+    } catch(e) { el.innerHTML = offlineMsg('salary'); }
   }
 
-  async function fetchAttrition() {
-    const el = document.getElementById('attritionDisplay');
+  async function loadAttrition() {
+    const el = document.getElementById('attritionBody');
     try {
       const res  = await fetch('/api/predict/attrition', {
         method:'POST', headers:{'Content-Type':'application/json'},
@@ -200,26 +125,28 @@
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
-
-      const pct  = Math.round(data.probability * 100);
-      const desc = {
-        High:   'Your profile shows some risk factors. Consider discussing growth opportunities with your manager.',
-        Medium: 'You have moderate risk factors. Your engagement looks generally positive.',
-        Low:    'You appear well-retained. Strong engagement and good role fit detected.'
-      };
-
+      const pct   = Math.round(data.probability * 100);
+      const color = data.risk==='High' ? '#fca5a5' : (data.risk==='Medium' ? '#fcd34d' : '#86efac');
+      const desc  = {High:'Your profile shows some risk factors. Consider discussing career growth with your manager.',Medium:'You have moderate risk indicators. Your engagement looks generally positive.',Low:'You appear well-retained. Strong engagement and good role fit detected.'};
       el.innerHTML = `
-        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-          <div class="risk-pill ${data.risk}">● ${data.risk} Risk</div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+          <span class="risk-pill ${data.risk}">● ${data.risk} Risk</span>
           <span style="color:var(--grey);font-size:.88rem">${pct}% probability</span>
         </div>
-        <p class="pred-note" style="margin-top:14px">${desc[data.risk]}</p>`;
-    } catch(e) {
-      el.innerHTML = `<p class="error-note">ML service unavailable</p>`;
-    }
+        <div class="prob-bar-wrap">
+          <div class="prob-label"><span>Attrition Probability</span><span>${pct}%</span></div>
+          <div class="prob-track"><div class="prob-fill" style="width:${pct}%;background:${color}"></div></div>
+        </div>
+        <p style="color:var(--grey);font-size:.85rem;margin-top:14px;line-height:1.6">${desc[data.risk]}</p>`;
+    } catch(e) { el.innerHTML = offlineMsg('attrition'); }
   }
 
-  loadInfo();
+  function offlineMsg(type) {
+    return `<div class="ml-offline"><p>ML service is not running.<br>To enable ${type} prediction, open a terminal and run:<br><br>
+      <code>cd ml_service</code> then <code>python ml_server.py</code><br><br>Then refresh this page.</p></div>`;
+  }
+
+  init();
 </script>
 </body>
 </html>

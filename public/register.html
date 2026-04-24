@@ -6,87 +6,36 @@
   <title>Register — EMS</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:#0d1b2a; --blue:#1a6ef5; --cyan:#00c2cb;
-      --white:#f8faff; --grey:#8a9bb5; --card:#131e2e;
-      --border:rgba(255,255,255,0.07); --danger:#ef4444;
-    }
-    * { margin:0;padding:0;box-sizing:border-box; }
-    body {
-      font-family:'DM Sans',sans-serif; background:var(--navy);
-      color:var(--white); min-height:100vh;
-      display:flex; align-items:center; justify-content:center;
-      padding:40px 20px;
-    }
-    body::before {
-      content:''; position:fixed; inset:0; z-index:0;
-      background-image:
-        linear-gradient(rgba(26,110,245,.05) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(26,110,245,.05) 1px,transparent 1px);
-      background-size:60px 60px; pointer-events:none;
-    }
-    .container {
-      position:relative; z-index:1;
-      width:100%; max-width:520px;
-    }
-    .back-link {
-      display:inline-flex; align-items:center; gap:8px; color:var(--grey);
-      text-decoration:none; font-size:.9rem; margin-bottom:24px;
-      transition:color .2s;
-    }
-    .back-link:hover { color:var(--white); }
-    .card {
-      background:var(--card); border:1px solid var(--border);
-      border-radius:20px; padding:40px;
-    }
-    .logo {
-      font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      margin-bottom:6px;
-    }
-    h2 {
-      font-family:'Syne',sans-serif; font-size:1.6rem; font-weight:800;
-      margin-bottom:4px; letter-spacing:-0.5px;
-    }
-    .sub { color:var(--grey); font-size:.9rem; margin-bottom:28px; }
-
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-
-    .form-group { margin-bottom:16px; }
-    .form-group label { display:block; font-size:.78rem; color:var(--grey); text-transform:uppercase; letter-spacing:.8px; margin-bottom:7px; }
-    .form-group input, .form-group select {
-      width:100%; background:rgba(255,255,255,.05); border:1px solid var(--border);
-      color:var(--white); padding:11px 14px; border-radius:9px; font-size:.95rem;
-      font-family:'DM Sans',sans-serif; outline:none; transition:border-color .2s;
-      appearance:none;
-    }
-    .form-group input::placeholder { color:rgba(138,155,181,.5); }
-    .form-group input:focus, .form-group select:focus { border-color:rgba(26,110,245,.5); }
-    .form-group select option { background:#1a2d42; }
-    .error { font-size:.78rem; color:#fca5a5; margin-top:5px; }
-
-    .submit-btn {
-      width:100%; background:linear-gradient(135deg,var(--blue),#1458d0);
-      color:#fff; border:none; padding:14px; border-radius:10px;
-      font-size:1rem; font-family:'DM Sans',sans-serif;
-      cursor:pointer; font-weight:500; transition:opacity .2s;
-      margin-top:8px; box-shadow:0 8px 24px rgba(26,110,245,.35);
-    }
-    .submit-btn:hover { opacity:.88; }
-    .login-link {
-      text-align:center; margin-top:20px; color:var(--grey); font-size:.88rem;
-    }
-    .login-link a { color:#7ab4ff; text-decoration:none; }
-    .login-link a:hover { text-decoration:underline; }
-
-    @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-    .card { animation:fadeIn .5s ease; }
+    :root{--navy:#0d1b2a;--blue:#1a6ef5;--cyan:#00c2cb;--white:#f8faff;--grey:#8a9bb5;--card:#131e2e;--border:rgba(255,255,255,0.07);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(26,110,245,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(26,110,245,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
+    .container{position:relative;z-index:1;width:100%;max-width:540px;}
+    .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--grey);text-decoration:none;font-size:.9rem;margin-bottom:20px;transition:color .2s;}
+    .back-link:hover{color:var(--white);}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;animation:fadeIn .5s ease;}
+    .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
+    h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:4px;}
+    .sub{color:var(--grey);font-size:.88rem;margin-bottom:24px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .form-group{margin-bottom:14px;}
+    .form-group label{display:block;font-size:.75rem;color:var(--grey);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
+    .form-group input,.form-group select{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--white);padding:10px 13px;border-radius:8px;font-size:.93rem;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;appearance:none;}
+    .form-group input::placeholder{color:rgba(138,155,181,.5);}
+    .form-group input:focus,.form-group select:focus{border-color:rgba(26,110,245,.5);}
+    .form-group select option{background:#1a2d42;}
+    .error{font-size:.76rem;color:#fca5a5;margin-top:4px;min-height:16px;}
+    .submit-btn{width:100%;background:linear-gradient(135deg,var(--blue),#1458d0);color:#fff;border:none;padding:13px;border-radius:10px;font-size:.98rem;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:opacity .2s;margin-top:6px;box-shadow:0 8px 24px rgba(26,110,245,.35);}
+    .submit-btn:hover{opacity:.88;}
+    .login-link{text-align:center;margin-top:18px;color:var(--grey);font-size:.86rem;}
+    .login-link a{color:#7ab4ff;text-decoration:none;}
+    .login-link a:hover{text-decoration:underline;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 <body>
 <div class="container">
-  <a href="index.html" class="back-link">← Back to home</a>
+  <a href="/index.html" class="back-link">← Back to home</a>
   <div class="card">
     <div class="logo">EMS</div>
     <h2>Create Account</h2>
@@ -125,7 +74,7 @@
           <div class="error" id="phoneError"></div>
         </div>
         <div class="form-group">
-          <label>Experience (yrs)</label>
+          <label>Experience (years)</label>
           <input type="number" name="experience" placeholder="0" min="0" max="40" step="0.5" value="0">
         </div>
       </div>
@@ -140,7 +89,7 @@
         <div class="form-group">
           <label>Department</label>
           <select name="department" required>
-            <option value="" disabled selected>Department</option>
+            <option value="" disabled selected>Select</option>
             <option value="IT">IT</option>
             <option value="Computer">Computer</option>
             <option value="ENTC">ENTC</option>
@@ -150,7 +99,7 @@
         <div class="form-group">
           <label>Profession</label>
           <select name="profession" required>
-            <option value="" disabled selected>Profession</option>
+            <option value="" disabled selected>Select</option>
             <option value="Professor">Professor</option>
             <option value="Lab Technician">Lab Technician</option>
             <option value="Administrative Staff">Administrative Staff</option>
@@ -174,7 +123,7 @@
 
       <button type="submit" class="submit-btn">Create Account →</button>
     </form>
-    <div class="login-link">Already have an account? <a href="login.html">Sign in</a></div>
+    <div class="login-link">Already have an account? <a href="/login.html">Sign in</a></div>
   </div>
 </div>
 <script>
@@ -188,15 +137,20 @@
     const email   = document.querySelector('[name="email"]').value.trim();
     const phone   = document.querySelector('[name="phone"]').value.trim();
     const address = document.querySelector('[name="address"]').value.trim();
-    const pass    = document.querySelector('[name="password"]').value.trim();
-    const cpass   = document.querySelector('[name="confirm_password"]').value.trim();
+    const dept    = document.querySelector('[name="department"]').value;
+    const prof    = document.querySelector('[name="profession"]').value;
+    const pass    = document.querySelector('[name="password"]').value;
+    const cpass   = document.querySelector('[name="confirm_password"]').value;
 
-    if (!/^[A-Za-z]+$/.test(fname))  { document.getElementById('fnameError').textContent   = "Alphabets only"; valid=false; }
-    if (!/^[A-Za-z]+$/.test(lname))  { document.getElementById('lnameError').textContent   = "Alphabets only"; valid=false; }
-    if (!/^[A-Za-z0-9]+$/.test(uname))    { document.getElementById('unameError').textContent   = "Alphanumeric only"; valid=false; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { document.getElementById('emailError').textContent = "Invalid email"; valid=false; }
-    if (!/^[0-9]{10}$/.test(phone))  { document.getElementById('phoneError').textContent   = "10 digits required"; valid=false; }
-    if (!/^[A-Za-z0-9\s,.-]+$/.test(address)) { document.getElementById('addressError').textContent = "Invalid characters"; valid=false; }
+    if (!fname || !/^[A-Za-z]+$/.test(fname))     { document.getElementById('fnameError').textContent   = 'Alphabets only'; valid=false; }
+    if (!lname || !/^[A-Za-z]+$/.test(lname))     { document.getElementById('lnameError').textContent   = 'Alphabets only'; valid=false; }
+    if (!uname || !/^[A-Za-z0-9_]+$/.test(uname)) { document.getElementById('unameError').textContent   = 'Alphanumeric only'; valid=false; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ document.getElementById('emailError').textContent   = 'Invalid email'; valid=false; }
+    if (!/^[0-9]{10}$/.test(phone))               { document.getElementById('phoneError').textContent   = '10 digits required'; valid=false; }
+    if (!address)                                  { document.getElementById('addressError').textContent = 'Address required'; valid=false; }
+    if (!dept)  { alert('Please select a department'); valid=false; }
+    if (!prof)  { alert('Please select a profession'); valid=false; }
+    if (!pass)  { document.getElementById('passError').textContent  = 'Password required'; valid=false; }
     if (pass !== cpass) { document.getElementById('cpassError').textContent = "Passwords don't match"; valid=false; }
 
     if (!valid) e.preventDefault();

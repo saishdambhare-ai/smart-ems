@@ -6,231 +6,126 @@
   <title>Admin Dashboard — EMS</title>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy:#0d1b2a; --blue:#1a6ef5; --cyan:#00c2cb;
-      --white:#f8faff; --grey:#8a9bb5; --card:#131e2e;
-      --border:rgba(255,255,255,0.07);
-      --success:#22c55e; --warn:#f59e0b; --danger:#ef4444;
-    }
-    * { margin:0;padding:0;box-sizing:border-box; }
-    body {
-      font-family:'DM Sans',sans-serif;
-      background:var(--navy); color:var(--white);
-      min-height:100vh;
-    }
-    body::before {
-      content:''; position:fixed; inset:0; z-index:0;
-      background-image:
-        linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);
-      background-size:60px 60px; pointer-events:none;
-    }
+    :root{--navy:#0d1b2a;--blue:#1a6ef5;--cyan:#00c2cb;--white:#f8faff;--grey:#8a9bb5;--card:#131e2e;--border:rgba(255,255,255,0.07);--success:#22c55e;--warn:#f59e0b;--danger:#ef4444;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+    body::before{content:'';position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(26,110,245,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(26,110,245,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;}
 
-    /* ── SIDEBAR ── */
-    .sidebar {
-      position:fixed; left:0; top:0; bottom:0; width:240px;
-      background:var(--card); border-right:1px solid var(--border);
-      display:flex; flex-direction:column; z-index:10;
-    }
-    .sidebar-logo {
-      padding:28px 24px; font-family:'Syne',sans-serif; font-weight:800;
-      font-size:1.3rem;
-      background:linear-gradient(135deg,var(--blue),var(--cyan));
-      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-      border-bottom:1px solid var(--border);
-    }
-    .sidebar-nav { flex:1; padding:20px 12px; display:flex; flex-direction:column; gap:4px; }
-    .nav-item {
-      display:flex; align-items:center; gap:12px;
-      padding:11px 16px; border-radius:10px;
-      color:var(--grey); text-decoration:none; font-size:0.9rem;
-      transition:all .2s; cursor:pointer;
-    }
-    .nav-item:hover,.nav-item.active {
-      background:rgba(26,110,245,.12); color:var(--white);
-    }
-    .nav-item.active { color:#7ab4ff; }
-    .nav-icon { font-size:1.1rem; width:22px; text-align:center; }
-    .sidebar-bottom { padding:16px 12px; border-top:1px solid var(--border); }
+    /* SIDEBAR */
+    .sidebar{position:fixed;left:0;top:0;bottom:0;width:230px;background:var(--card);border-right:1px solid var(--border);display:flex;flex-direction:column;z-index:10;}
+    .sidebar-logo{padding:26px 22px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;border-bottom:1px solid var(--border);}
+    .sidebar-nav{flex:1;padding:18px 10px;display:flex;flex-direction:column;gap:4px;}
+    .nav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;color:var(--grey);text-decoration:none;font-size:.88rem;transition:all .2s;}
+    .nav-item:hover,.nav-item.active{background:rgba(26,110,245,.12);color:var(--white);}
+    .nav-item.active{color:#7ab4ff;}
+    .sidebar-bottom{padding:14px 10px;border-top:1px solid var(--border);}
+    .logout-link{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;color:var(--danger);text-decoration:none;font-size:.88rem;transition:background .2s;}
+    .logout-link:hover{background:rgba(239,68,68,.1);}
 
-    /* ── MAIN ── */
-    .main {
-      margin-left:240px; padding:32px; position:relative; z-index:1;
-    }
-    .page-header {
-      margin-bottom:32px; display:flex; align-items:center; justify-content:space-between;
-    }
-    .page-title { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; }
-    .page-sub   { color:var(--grey); font-size:0.9rem; margin-top:4px; }
-    .header-right { display:flex; gap:12px; align-items:center; }
-    .admin-badge {
-      background:rgba(26,110,245,.15); border:1px solid rgba(26,110,245,.3);
-      color:#7ab4ff; padding:6px 14px; border-radius:100px; font-size:0.8rem;
-    }
+    /* MAIN */
+    .main{margin-left:230px;padding:30px;position:relative;z-index:1;}
+    .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;}
+    .page-title{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;}
+    .page-sub{color:var(--grey);font-size:.88rem;margin-top:4px;}
+    .admin-badge{background:rgba(26,110,245,.15);border:1px solid rgba(26,110,245,.3);color:#7ab4ff;padding:6px 14px;border-radius:100px;font-size:.78rem;}
 
-    /* ── STAT CARDS ── */
-    .stats-grid {
-      display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px;
-    }
-    .stat-card {
-      background:var(--card); border:1px solid var(--border);
-      border-radius:14px; padding:24px;
-      transition:border-color .3s, transform .2s;
-    }
-    .stat-card:hover { border-color:rgba(26,110,245,.35); transform:translateY(-2px); }
-    .stat-card-label { font-size:0.78rem; color:var(--grey); text-transform:uppercase; letter-spacing:1px; margin-bottom:12px; }
-    .stat-card-num {
-      font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800;
-    }
-    .stat-card-sub { font-size:0.8rem; color:var(--grey); margin-top:6px; }
-    .stat-card.blue .stat-card-num  { color:#7ab4ff; }
-    .stat-card.green .stat-card-num { color:var(--success); }
-    .stat-card.yellow .stat-card-num{ color:var(--warn); }
-    .stat-card.red .stat-card-num   { color:var(--danger); }
+    /* ML STATUS */
+    .ml-status-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:10px;margin-bottom:20px;font-size:.85rem;}
+    .ml-status-bar.online{background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#86efac;}
+    .ml-status-bar.offline{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:#fcd34d;}
+    .ml-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+    .ml-dot.green{background:#22c55e;animation:blink 2s infinite;}
+    .ml-dot.yellow{background:#f59e0b;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-    /* ── SECTION CARD ── */
-    .section-card {
-      background:var(--card); border:1px solid var(--border);
-      border-radius:16px; overflow:hidden; margin-bottom:24px;
-    }
-    .section-head {
-      padding:20px 24px; border-bottom:1px solid var(--border);
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .section-head h3 { font-family:'Syne',sans-serif; font-size:1rem; font-weight:700; }
-    .section-body { padding:24px; }
+    /* STATS */
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px;}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;transition:border-color .3s,transform .2s;}
+    .stat-card:hover{border-color:rgba(26,110,245,.35);transform:translateY(-2px);}
+    .stat-card-label{font-size:.72rem;color:var(--grey);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
+    .stat-card-num{font-family:'Syne',sans-serif;font-size:2.1rem;font-weight:800;}
+    .stat-card-sub{font-size:.78rem;color:var(--grey);margin-top:5px;}
+    .stat-card.blue .stat-card-num{color:#7ab4ff;}.stat-card.green .stat-card-num{color:var(--success);}
+    .stat-card.yellow .stat-card-num{color:var(--warn);}.stat-card.red .stat-card-num{color:var(--danger);}
 
-    /* ── DEPT BAR CHART ── */
-    .dept-bars { display:flex; flex-direction:column; gap:14px; }
-    .dept-row  { display:flex; align-items:center; gap:14px; }
-    .dept-name { width:110px; font-size:0.85rem; color:var(--grey); flex-shrink:0; }
-    .dept-track { flex:1; height:10px; background:rgba(255,255,255,.07); border-radius:100px; overflow:hidden; }
-    .dept-fill  { height:100%; border-radius:100px; background:linear-gradient(90deg,var(--blue),var(--cyan)); transition:width .8s ease; }
-    .dept-count { width:30px; text-align:right; font-size:0.85rem; color:var(--grey); }
+    /* CARDS */
+    .section-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:20px;}
+    .section-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .section-head h3{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;}
+    .section-body{padding:22px;}
 
-    /* ── ATTRITION TABLE ── */
-    .attrition-table { width:100%; border-collapse:collapse; }
-    .attrition-table th {
-      padding:10px 14px; text-align:left; font-size:0.75rem;
-      text-transform:uppercase; letter-spacing:1px; color:var(--grey);
-      border-bottom:1px solid var(--border);
-    }
-    .attrition-table td {
-      padding:12px 14px; font-size:0.88rem; border-bottom:1px solid rgba(255,255,255,.03);
-    }
-    .attrition-table tr:hover td { background:rgba(255,255,255,.02); }
-    .risk-badge {
-      display:inline-block; padding:3px 10px; border-radius:100px; font-size:0.75rem; font-weight:500;
-    }
-    .risk-high   { background:rgba(239,68,68,.15);  color:#fca5a5; }
-    .risk-medium { background:rgba(245,158,11,.15); color:#fcd34d; }
-    .risk-low    { background:rgba(34,197,94,.15);  color:#86efac; }
+    /* DEPT BARS */
+    .dept-bars{display:flex;flex-direction:column;gap:14px;}
+    .dept-row{display:flex;align-items:center;gap:12px;}
+    .dept-name{width:90px;font-size:.83rem;color:var(--grey);flex-shrink:0;}
+    .dept-track{flex:1;height:10px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden;}
+    .dept-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .8s ease;}
+    .dept-count{width:28px;text-align:right;font-size:.83rem;color:var(--grey);}
 
-    /* ── PROB BAR ── */
-    .prob-cell { display:flex; align-items:center; gap:10px; }
-    .prob-mini-track { flex:1; height:6px; background:rgba(255,255,255,.07); border-radius:100px; overflow:hidden; }
-    .prob-mini-fill  { height:100%; border-radius:100px; }
+    /* ATTRITION TABLE */
+    .att-table{width:100%;border-collapse:collapse;}
+    .att-table th{padding:10px 12px;text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--grey);border-bottom:1px solid var(--border);}
+    .att-table td{padding:11px 12px;font-size:.86rem;border-bottom:1px solid rgba(255,255,255,.03);}
+    .att-table tr:last-child td{border-bottom:none;}
+    .risk-badge{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:500;}
+    .risk-High{background:rgba(239,68,68,.15);color:#fca5a5;}
+    .risk-Medium{background:rgba(245,158,11,.15);color:#fcd34d;}
+    .risk-Low{background:rgba(34,197,94,.15);color:#86efac;}
+    .prob-mini{display:flex;align-items:center;gap:8px;}
+    .prob-track-mini{flex:1;height:6px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden;}
+    .prob-fill-mini{height:100%;border-radius:100px;}
 
-    /* ── SCAN BUTTON ── */
-    .scan-btn {
-      background:linear-gradient(135deg,var(--blue),#1458d0);
-      color:#fff; border:none; padding:9px 20px;
-      border-radius:8px; font-size:0.85rem; font-family:'DM Sans',sans-serif;
-      cursor:pointer; transition:opacity .2s;
-    }
-    .scan-btn:hover { opacity:.85; }
-    .scan-btn:disabled { opacity:.4; cursor:not-allowed; }
+    /* BUTTONS */
+    .scan-btn{background:linear-gradient(135deg,var(--blue),#1458d0);color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:.83rem;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .2s;}
+    .scan-btn:hover{opacity:.85;}.scan-btn:disabled{opacity:.4;cursor:not-allowed;}
+    .action-link{display:inline-flex;align-items:center;gap:6px;background:rgba(26,110,245,.1);color:#7ab4ff;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:.83rem;transition:background .2s;}
+    .action-link:hover{background:rgba(26,110,245,.2);}
 
-    /* ── LINKS ── */
-    .action-link {
-      display:inline-flex; align-items:center; gap:6px;
-      background:rgba(26,110,245,.12); color:#7ab4ff;
-      padding:8px 16px; border-radius:8px; text-decoration:none; font-size:0.85rem;
-      transition:background .2s;
-    }
-    .action-link:hover { background:rgba(26,110,245,.22); }
-
-    .logout-link {
-      display:flex; align-items:center; gap:10px;
-      padding:11px 16px; border-radius:10px;
-      color:var(--danger); text-decoration:none; font-size:0.9rem;
-      transition:background .2s;
-    }
-    .logout-link:hover { background:rgba(239,68,68,.1); }
-
-    @keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-    .main > * { animation:fadeIn .5s ease both; }
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .main>*{animation:fadeIn .5s ease both;}
   </style>
 </head>
 <body>
-
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="sidebar-logo">EMS Admin</div>
   <nav class="sidebar-nav">
-    <a class="nav-item active" href="admin.html">
-      <span class="nav-icon">📊</span> Dashboard
-    </a>
-    <a class="nav-item" href="manage.html">
-      <span class="nav-icon">👥</span> Manage Employees
-    </a>
-    <a class="nav-item" href="predict.html">
-      <span class="nav-icon">🤖</span> ML Predictions
-    </a>
+    <a class="nav-item active" href="/admin.html">📊 Dashboard</a>
+    <a class="nav-item" href="/manage.html">👥 Manage Employees</a>
+    <a class="nav-item" href="/predict.html">🤖 ML Predictions</a>
   </nav>
   <div class="sidebar-bottom">
-    <a class="logout-link" href="index.html">
-      <span>🚪</span> Logout
-    </a>
+    <a class="logout-link" href="/logout">🚪 Logout</a>
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
   <div class="page-header">
     <div>
       <div class="page-title">Admin Dashboard</div>
       <div class="page-sub">Welcome back. Here's what's happening.</div>
     </div>
-    <div class="header-right">
-      <span class="admin-badge">● Admin</span>
-    </div>
+    <span class="admin-badge">● Admin</span>
+  </div>
+
+  <!-- ML STATUS -->
+  <div class="ml-status-bar offline" id="mlStatusBar">
+    <div class="ml-dot yellow" id="mlDot"></div>
+    <span id="mlStatusText">Checking ML service...</span>
   </div>
 
   <!-- STAT CARDS -->
   <div class="stats-grid">
-    <div class="stat-card blue">
-      <div class="stat-card-label">Total Employees</div>
-      <div class="stat-card-num" id="totalEmp">—</div>
-      <div class="stat-card-sub">All registered</div>
-    </div>
-    <div class="stat-card green">
-      <div class="stat-card-label">Active</div>
-      <div class="stat-card-num" id="activeEmp">—</div>
-      <div class="stat-card-sub">With profession set</div>
-    </div>
-    <div class="stat-card yellow">
-      <div class="stat-card-label">Avg. Experience</div>
-      <div class="stat-card-num" id="avgExp">—</div>
-      <div class="stat-card-sub">Years</div>
-    </div>
-    <div class="stat-card red">
-      <div class="stat-card-label">High Risk</div>
-      <div class="stat-card-num" id="highRiskCount">—</div>
-      <div class="stat-card-sub">Attrition risk</div>
-    </div>
+    <div class="stat-card blue"><div class="stat-card-label">Total Employees</div><div class="stat-card-num" id="totalEmp">—</div><div class="stat-card-sub">All registered</div></div>
+    <div class="stat-card green"><div class="stat-card-label">Active</div><div class="stat-card-num" id="activeEmp">—</div><div class="stat-card-sub">With profession set</div></div>
+    <div class="stat-card yellow"><div class="stat-card-label">Avg. Experience</div><div class="stat-card-num" id="avgExp">—</div><div class="stat-card-sub">Years</div></div>
+    <div class="stat-card red"><div class="stat-card-label">High Risk</div><div class="stat-card-num" id="highRiskCount">—</div><div class="stat-card-sub">Attrition risk</div></div>
   </div>
 
-  <!-- ROW: Dept chart + Attrition scan -->
-  <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:20px;margin-bottom:24px;">
-    <!-- DEPT DISTRIBUTION -->
+  <div style="display:grid;grid-template-columns:1fr 1.7fr;gap:18px;margin-bottom:20px;">
+    <!-- DEPT CHART -->
     <div class="section-card">
-      <div class="section-head">
-        <h3>Department Distribution</h3>
-      </div>
-      <div class="section-body">
-        <div class="dept-bars" id="deptBars">Loading…</div>
-      </div>
+      <div class="section-head"><h3>Department Distribution</h3></div>
+      <div class="section-body"><div class="dept-bars" id="deptBars"><p style="color:var(--grey);font-size:.85rem">Loading...</p></div></div>
     </div>
 
     <!-- ATTRITION SCAN -->
@@ -240,20 +135,20 @@
         <button class="scan-btn" id="scanBtn" onclick="runScan()">Run Scan</button>
       </div>
       <div class="section-body" id="attritionBody">
-        <p style="color:var(--grey);font-size:.9rem;">Click "Run Scan" to analyze all employees for attrition risk.<br><br>
-        <em>Requires ML service to be running.</em></p>
+        <p style="color:var(--grey);font-size:.88rem;line-height:1.6">Click <strong>Run Scan</strong> to analyze all employees for attrition risk using the ML model.<br><br>
+        Make sure the ML service is running (green status above).</p>
       </div>
     </div>
   </div>
 
-  <!-- QUICK LINKS -->
+  <!-- QUICK ACTIONS -->
   <div class="section-card">
     <div class="section-head"><h3>Quick Actions</h3></div>
-    <div class="section-body" style="display:flex;gap:14px;flex-wrap:wrap;">
-      <a href="manage.html" class="action-link">👥 Manage Employees</a>
-      <a href="predict.html" class="action-link">💰 Salary Predictor</a>
-      <a href="predict.html" class="action-link">🔮 Attrition Predictor</a>
-      <a href="register.html" class="action-link">➕ Add Employee</a>
+    <div class="section-body" style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="/manage.html"   class="action-link">👥 Manage Employees</a>
+      <a href="/predict.html"  class="action-link">💰 Salary Predictor</a>
+      <a href="/predict.html"  class="action-link">🔮 Attrition Predictor</a>
+      <a href="/register.html" class="action-link">➕ Add Employee</a>
     </div>
   </div>
 </main>
@@ -261,87 +156,126 @@
 <script>
 let allEmployees = [];
 
+// Check ML health
+async function checkML() {
+  const bar  = document.getElementById('mlStatusBar');
+  const dot  = document.getElementById('mlDot');
+  const text = document.getElementById('mlStatusText');
+  try {
+    const res  = await fetch('/api/ml-health');
+    const data = await res.json();
+    if (data.available) {
+      bar.className  = 'ml-status-bar online';
+      dot.className  = 'ml-dot green';
+      text.textContent = 'ML service is online and ready ✓';
+    } else {
+      throw new Error('not available');
+    }
+  } catch(e) {
+    bar.className  = 'ml-status-bar offline';
+    dot.className  = 'ml-dot yellow';
+    text.textContent = 'ML service offline — run: python ml_service/ml_server.py';
+  }
+}
+
 async function loadDashboard() {
   try {
-    const res  = await fetch('/get_all_employees');
+    const res = await fetch('/get_all_employees');
     allEmployees = await res.json();
+
     const total  = allEmployees.length;
     const active = allEmployees.filter(e => e.profession).length;
-    const avgExp = total ? (allEmployees.reduce((s,e) => s + (e.experience||0), 0) / total).toFixed(1) : '0';
+    const avgExp = total ? (allEmployees.reduce((s,e)=>s+(e.experience||0),0)/total).toFixed(1) : '0';
 
     document.getElementById('totalEmp').textContent  = total;
     document.getElementById('activeEmp').textContent = active;
     document.getElementById('avgExp').textContent    = avgExp + 'y';
 
-    // Dept distribution
+    // Dept bars
     const depts = {};
     allEmployees.forEach(e => { depts[e.department] = (depts[e.department]||0)+1; });
     const max = Math.max(...Object.values(depts), 1);
     const barsEl = document.getElementById('deptBars');
-    barsEl.innerHTML = '';
-    Object.entries(depts).sort((a,b)=>b[1]-a[1]).forEach(([dept, cnt]) => {
-      const pct = Math.round((cnt/max)*100);
-      barsEl.innerHTML += `
-        <div class="dept-row">
+    if (Object.keys(depts).length === 0) {
+      barsEl.innerHTML = '<p style="color:var(--grey);font-size:.85rem">No employees registered yet.</p>';
+    } else {
+      barsEl.innerHTML = '';
+      Object.entries(depts).sort((a,b)=>b[1]-a[1]).forEach(([dept,cnt]) => {
+        const pct = Math.round((cnt/max)*100);
+        barsEl.innerHTML += `<div class="dept-row">
           <div class="dept-name">${dept}</div>
           <div class="dept-track"><div class="dept-fill" style="width:${pct}%"></div></div>
           <div class="dept-count">${cnt}</div>
         </div>`;
-    });
+      });
+    }
   } catch(e) {
-    console.error(e);
+    console.error('Dashboard load error:', e);
   }
 }
 
 async function runScan() {
   const btn  = document.getElementById('scanBtn');
   const body = document.getElementById('attritionBody');
-  btn.disabled = true; btn.textContent = 'Scanning…';
-  body.innerHTML = '<p style="color:var(--grey)">Contacting ML service…</p>';
+  btn.disabled = true; btn.textContent = 'Scanning...';
+  body.innerHTML = '<p style="color:var(--grey);font-size:.88rem">Contacting ML service, please wait...</p>';
 
   try {
     const res  = await fetch('/api/attrition-scan');
     const data = await res.json();
 
-    if (data.error) { body.innerHTML = `<p style="color:var(--danger)">${data.error}</p>`; return; }
+    if (data.error) throw new Error(data.error);
+    if (!Array.isArray(data) || data.length === 0) {
+      body.innerHTML = '<p style="color:var(--grey);font-size:.88rem">No employees found to scan. Add employees first.</p>';
+      document.getElementById('highRiskCount').textContent = '0';
+      return;
+    }
 
-    // Sort by probability desc
-    data.sort((a,b) => b.probability - a.probability);
     const highRisk = data.filter(d => d.risk === 'High').length;
     document.getElementById('highRiskCount').textContent = highRisk;
 
-    const rows = data.slice(0, 8).map(d => {
-      const pct   = Math.round(d.probability * 100);
+    const rows = data.slice(0, 10).map(d => {
+      const pct   = Math.round((d.probability||0) * 100);
       const color = d.risk==='High' ? '#fca5a5' : (d.risk==='Medium' ? '#fcd34d' : '#86efac');
       return `<tr>
-        <td>${d.name}</td>
-        <td>${d.department}</td>
-        <td><span class="risk-badge risk-${d.risk.toLowerCase()}">${d.risk}</span></td>
+        <td>${d.name || '—'}</td>
+        <td>${d.department || '—'}</td>
+        <td>${d.profession  || '—'}</td>
+        <td><span class="risk-badge risk-${d.risk}">${d.risk}</span></td>
         <td>
-          <div class="prob-cell">
-            <div class="prob-mini-track">
-              <div class="prob-mini-fill" style="width:${pct}%;background:${color}"></div>
-            </div>
-            <span style="font-size:.8rem;color:var(--grey);min-width:34px">${pct}%</span>
+          <div class="prob-mini">
+            <div class="prob-track-mini"><div class="prob-fill-mini" style="width:${pct}%;background:${color}"></div></div>
+            <span style="font-size:.78rem;color:var(--grey);min-width:32px">${pct}%</span>
           </div>
         </td>
       </tr>`;
     }).join('');
 
     body.innerHTML = `
-      <table class="attrition-table">
-        <thead><tr><th>Name</th><th>Dept</th><th>Risk</th><th>Probability</th></tr></thead>
+      <table class="att-table">
+        <thead><tr><th>Name</th><th>Dept</th><th>Profession</th><th>Risk</th><th>Probability</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
-      ${data.length > 8 ? `<p style="color:var(--grey);font-size:.8rem;margin-top:12px">Showing top 8 of ${data.length}. <a href="predict.html" style="color:#7ab4ff">View all →</a></p>` : ''}`;
+      ${data.length > 10 ? `<p style="color:var(--grey);font-size:.78rem;margin-top:10px">Showing top 10 of ${data.length}. <a href="/predict.html" style="color:#7ab4ff">View predictor →</a></p>` : ''}`;
+
   } catch(e) {
-    body.innerHTML = `<p style="color:var(--danger)">ML service unavailable. Run: <code style="background:rgba(255,255,255,.08);padding:2px 6px;border-radius:4px">python ml_service/ml_server.py</code></p>`;
+    body.innerHTML = `<div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px 18px;">
+      <p style="color:#fcd34d;font-size:.86rem;line-height:1.7">
+        ML service is not running.<br>
+        Open a terminal and run:<br>
+        <code style="background:rgba(255,255,255,.1);padding:2px 8px;border-radius:4px;font-family:monospace">cd ml_service</code><br>
+        <code style="background:rgba(255,255,255,.1);padding:2px 8px;border-radius:4px;font-family:monospace">python ml_server.py</code><br>
+        Then click Run Scan again.
+      </p>
+    </div>`;
   } finally {
     btn.disabled = false; btn.textContent = 'Run Scan';
   }
 }
 
+checkML();
 loadDashboard();
+setInterval(checkML, 30000); // recheck every 30s
 </script>
 </body>
 </html>
